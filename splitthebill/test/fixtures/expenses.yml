@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  trip: one
+  name: MyString
+  expense_type: MyString
+  amount: 9.99
+  payer: one
+  date: 2024-11-21
+
+two:
+  trip: two
+  name: MyString
+  expense_type: MyString
+  amount: 9.99
+  payer: two
+  date: 2024-11-21
