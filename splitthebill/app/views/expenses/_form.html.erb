@@ -11,9 +11,10 @@
     </div>
   <% end %>
 
+  <!-- Trip Selection -->
   <div>
-    <%= form.label :trip_id, style: "display: block" %>
-    <%= form.text_field :trip_id %>
+    <%= form.label :trip_id, "Trip", style: "display: block" %>
+    <%= form.collection_select :trip_id, Trip.all, :id, :name, prompt: "Select a Trip" %>
   </div>
 
   <div>
@@ -22,8 +23,8 @@
   </div>
 
   <div>
-    <%= form.label :expense_type, style: "display: block" %>
-    <%= form.text_field :expense_type %>
+    <%= form.label :expense_type %>
+    <%= form.select :expense_type, ["Food", "Gas", "Lodging", "Entertainment"], prompt: "Select a category" %>
   </div>
 
   <div>
@@ -31,9 +32,11 @@
     <%= form.text_field :amount %>
   </div>
 
+
+  <!-- Payer Selection -->
   <div>
-    <%= form.label :payer_id, style: "display: block" %>
-    <%= form.text_field :payer_id %>
+    <%= form.label :payer_id, "Who Paid?" %>
+    <%= form.collection_select :payer_id, User.all, :id, :name, prompt: "Select a Payer" %>
   </div>
 
   <div>

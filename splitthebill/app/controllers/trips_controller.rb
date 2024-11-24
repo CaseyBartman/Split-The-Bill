@@ -4,6 +4,8 @@ class TripsController < ApplicationController
   # GET /trips or /trips.json
   def index
     @trips = Trip.all
+    #@trips = Trip.includes(participants: :user).all
+
   end
 
   # GET /trips/1 or /trips/1.json
@@ -13,6 +15,9 @@ class TripsController < ApplicationController
   # GET /trips/new
   def new
     @trip = Trip.new
+    # @users = User.all
+
+    # Rails.logger.debug "Users: #{@users.inspect}"  # Debugging line
   end
 
   # GET /trips/1/edit
@@ -22,6 +27,19 @@ class TripsController < ApplicationController
   # POST /trips or /trips.json
   def create
     @trip = Trip.new(trip_params)
+
+    # For the trip to include users through participations, we need to pass user ids
+    # if @trip.save
+    #   # Add selected users to the trip
+    #   user_ids = params[:trip][:user_ids] || []
+    #   user_ids.each do |user_id|
+    #     @trip.participants.create(user_id: user_id)
+    #   end
+    #   redirect_to @trip, notice: 'Trip created successfully!'
+    # else
+    #   @users = User.all
+    #   render :new
+    # end
 
     respond_to do |format|
       if @trip.save

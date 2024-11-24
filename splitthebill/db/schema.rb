@@ -37,7 +37,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_11_21_234028) do
   create_table "participants", force: :cascade do |t|
     t.integer "trip_id", null: false
     t.integer "user_id", null: false
-    t.decimal "amount_owed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["trip_id"], name: "index_participants_on_trip_id"
@@ -61,8 +60,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_11_21_234028) do
 
   add_foreign_key "contributions", "expenses"
   add_foreign_key "contributions", "users"
-  add_foreign_key "expenses", "payers"
   add_foreign_key "expenses", "trips"
+  add_foreign_key "expenses", "users", column: "payer_id"
   add_foreign_key "participants", "trips"
   add_foreign_key "participants", "users"
 end
