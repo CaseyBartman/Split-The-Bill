@@ -4,6 +4,7 @@ class CreateContributions < ActiveRecord::Migration[7.0]
       t.references :expense, null: false, foreign_key: true
       t.references :user, null: false, foreign_key: true
       t.decimal :amount
+      t.boolean :paid, default: false, null:false
 
       t.timestamps
     end

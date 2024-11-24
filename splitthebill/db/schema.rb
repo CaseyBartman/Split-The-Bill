@@ -15,6 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_11_21_234028) do
     t.integer "expense_id", null: false
     t.integer "user_id", null: false
     t.decimal "amount"
+    t.boolean "paid", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["expense_id"], name: "index_contributions_on_expense_id"
