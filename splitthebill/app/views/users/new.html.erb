@@ -1,0 +1,19 @@
+<h1>Create a New User</h1>
+
+<%= form_with model: @user, local: true do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+
+  <div>
+    <%= f.submit "Create User" %>
+  </div>
+<% end %>
+
+<%= link_to "Back to Users", users_path %>

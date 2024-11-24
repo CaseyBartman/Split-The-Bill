@@ -13,6 +13,8 @@ class ExpensesController < ApplicationController
   # GET /expenses/new
   def new
     @expense = Expense.new
+    # @trip = Trip.find(params[:trip_id]) #Change to pass in a trip_id later?
+    # @users = @trip.participants.map(&:user) #Users in the trip
   end
 
   # GET /expenses/1/edit

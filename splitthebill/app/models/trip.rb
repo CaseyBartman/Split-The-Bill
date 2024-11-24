@@ -1,6 +1,6 @@
 class Trip < ApplicationRecord
-  has_many :participations
-  has_many :users, through: :participations
+  has_many :participants
+  has_many :users, through: :participants
   has_many :expenses
 
   validates :name, presence: true

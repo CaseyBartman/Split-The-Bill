@@ -5,7 +5,7 @@ class CreateExpenses < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :expense_type
       t.decimal :amount
-      t.references :payer, null: false, foreign_key: true
+      t.references :payer, null: false, foreign_key: { to_table: :users } # Explicit foreign key
       t.date :date
 
       t.timestamps
