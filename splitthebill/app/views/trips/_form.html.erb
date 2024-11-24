@@ -26,6 +26,16 @@
     <%= form.date_field :end_date %>
   </div>
 
+  <h3>Participants</h3>
+  <div>
+    <% @users.each do |user| %>
+      <div>
+        <%= check_box_tag "trip[user_ids][]", user.id %>
+        <%= label_tag "trip_user_ids_#{user.id}", user.name %>
+      </div>
+    <% end %>
+  </div>
+
   <div>
     <%= form.submit %>
   </div>

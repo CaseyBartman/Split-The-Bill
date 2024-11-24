@@ -1,12 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Trips</h1>
-<div id="trips">
-  <% @trips.each do |trip| %>
-    <%= render trip %>
-    <p>
-      <%= link_to "Show this trip", trip %>
+<% @trips.each do |trip| %>
+  <div>
+    <h3><%= trip.name %></h3>
+    <p><%= trip.start_date %> - <%= trip.end_date %></p>
+    <p>Participants: 
+      <% trip.users.each do |user| %>
+        <%= user.name %>
+        <% if user != trip.users.last %>, <% end %>
+      <% end %>
     </p>
-  <% end %>
-</div>
+    <%= link_to 'Show', trip_path(trip) %>
+  </div>
+<% end %>
 <%= link_to "New trip", new_trip_path %>

@@ -4,8 +4,8 @@ class TripsController < ApplicationController
   # GET /trips or /trips.json
   def index
     @trips = Trip.all
+    @users = User.all
     #@trips = Trip.includes(participants: :user).all
-
   end
 
   # GET /trips/1 or /trips/1.json
@@ -15,7 +15,7 @@ class TripsController < ApplicationController
   # GET /trips/new
   def new
     @trip = Trip.new
-    # @users = User.all
+    @users = User.all #I want to display each user in the form!
 
     # Rails.logger.debug "Users: #{@users.inspect}"  # Debugging line
   end
@@ -28,28 +28,28 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new(trip_params)
 
-    # For the trip to include users through participations, we need to pass user ids
-    # if @trip.save
-    #   # Add selected users to the trip
-    #   user_ids = params[:trip][:user_ids] || []
-    #   user_ids.each do |user_id|
-    #     @trip.participants.create(user_id: user_id)
-    #   end
-    #   redirect_to @trip, notice: 'Trip created successfully!'
-    # else
-    #   @users = User.all
-    #   render :new
-    # end
-
-    respond_to do |format|
-      if @trip.save
-        format.html { redirect_to @trip, notice: "Trip was successfully created." }
-        format.json { render :show, status: :created, location: @trip }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @trip.errors, status: :unprocessable_entity }
+    #For the trip to include users through participations, we need to pass user ids
+    if @trip.save
+      # Add selected users to the trip
+      user_ids = params[:trip][:user_ids] || []
+      user_ids.each do |user_id|
+        @trip.participants.create(user_id: user_id)
       end
+      redirect_to @trip, notice: 'Trip created successfully!'
+    else
+      @users = User.all
+      render :new
     end
+
+    # respond_to do |format|
+    #   if @trip.save
+    #     format.html { redirect_to @trip, notice: "Trip was successfully created." }
+    #     format.json { render :show, status: :created, location: @trip }
+    #   else
+    #     format.html { render :new, status: :unprocessable_entity }
+    #     format.json { render json: @trip.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /trips/1 or /trips/1.json
