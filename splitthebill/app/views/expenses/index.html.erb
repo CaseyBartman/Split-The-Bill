@@ -1,6 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Expenses</h1>
+<%= link_to 'Back to Home', root_path, class: 'btn btn-primary' %> <!-- Link to Home, again, switch to take out embedded CSS! -->
 
 <div id="expenses">
   <% @expenses.each do |expense| %>
