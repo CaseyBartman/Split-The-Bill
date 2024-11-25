@@ -1,31 +1,31 @@
-<h1 class = "welcome"> Welcome to Split the Bill! </h1>
+<h1 class = "welcome navHead"> Welcome to Split the Bill! </h1>
 <hr class = "line">
 
 <nav class="navbar navbar-expand-lg nv">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand navHead" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link navHead" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <%= link_to 'Expenses', expenses_path, class: 'nav-link' %> <!-- Link to Expenses index using the cool link_to funcionality! -->
+        <%= link_to 'Expenses', expenses_path, class: 'nav-link navHead' %> <!-- Link to Expenses index using the cool link_to funcionality! -->
     </li>
 
       <li class="nav-item">
-        <%= link_to 'Trips', trips_path, class: 'nav-link' %> <!-- Link to Trips index using the cool link_to funcionality! -->
+        <%= link_to 'Trips', trips_path, class: 'nav-link navHead' %> <!-- Link to Trips index using the cool link_to funcionality! -->
       </li>
 
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Admin</a>
+        <a class="nav-link disabled navHead" href="#">Admin</a>
       </li>
     </ul>
   </div>
   <form class="form-inline">
-        <input class="mb-2 form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <input class="mb-2 form-control mr-sm-2 search" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0 search" type="submit">Search</button>
     </form>
 </nav>
