@@ -5,6 +5,8 @@
 <div>
   <%= link_to "Edit this trip", edit_trip_path(@trip) %> |
   <%= link_to "Back to trips", trips_path %>
+  <%= link_to 'Add Expense', new_trip_expense_path(@trip), class: 'btn btn-primary' %>
+
 
   <%= button_to "Destroy this trip", @trip, method: :delete %>
 </div>
