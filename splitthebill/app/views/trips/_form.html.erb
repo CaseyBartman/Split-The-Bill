@@ -1,4 +1,4 @@
-
+<div>
   <%= form_with(model: trip) do |form| %>
     <% if trip.errors.any? %>
       <div style="color: red">
@@ -22,22 +22,25 @@
       <%= form.date_field :start_date %>
     </div>
 
-    <div>
+    <div class = "p-3">
       <%= form.label :end_date, style: "display: block" %>
       <%= form.date_field :end_date %>
     </div>
 
-    <h3>Participants</h3>
-    <div>
+    <h4 class="tripsHead">Participants</h4>
+    <div class="row p-3">
       <% @users.each do |user| %>
-        <div>
-          <%= check_box_tag "trip[user_ids][]", user.id %>
-          <%= label_tag "trip_user_ids_#{user.id}", user.name %>
+        <div class="col-md-3">
+          <div class="form-check">
+            <%= check_box_tag "trip[user_ids][]", user.id, false, class: "form-check-input", id: "trip_user_ids_#{user.id}" %>
+            <%= label_tag "trip_user_ids_#{user.id}", user.name, class: "form-check-label" %>
+          </div>
         </div>
       <% end %>
     </div>
 
     <div>
-      <%= form.submit %>
+      <%= form.submit "Update Trip", class: "btn btn-primary tripButton"%>
     </div>
   <% end %>
+</div>

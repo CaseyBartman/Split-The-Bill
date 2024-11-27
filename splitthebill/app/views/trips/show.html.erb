@@ -16,9 +16,8 @@
 <div class = "trips">
   <%= link_to "Edit this trip", edit_trip_path(@trip) %>
   <%= link_to "Back to trips", trips_path %>
-  <%= link_to 'View Expenses', trip_expenses_path(@trip), class: 'btn btn-primary' %>
 
+  <%= link_to 'View Expenses', trip_expenses_path(@trip), class: "btn btn-primary tripButton" %>
 
-
-  <%= button_to "Destroy this trip", @trip, method: :delete %>
+  <%= button_to "Delete Trip", @trip, class: "btn btn-primary tripButton", method: :delete %>
 </div>

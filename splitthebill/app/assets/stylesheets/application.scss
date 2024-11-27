@@ -64,7 +64,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: #FF9E9D;
+  color: #3CB371;
   padding: 10px;
  }
 
@@ -77,14 +77,26 @@
  }
 
  .trips a{
-  color: #FF9E9D;
+  color: #3CB371;
  }
 
  .trips a:hover{
-  color: #FF6F3C;
+  color: #FF9E9D;
  }
 
  .trips hr {
   border: 1px solid #007B82;
   width: 100%;
+ }
+
+ .tripButton {
+  margin: 10px;
+  background-color: #3CB371;
+  border-width: 0px;
+  color: #FFD700 !important;
+ }
+
+ .tripButton:hover{
+  background-color: #007B82;
+  color: #FF9E9D !important;
  }
