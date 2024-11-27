@@ -18,22 +18,17 @@
 
  .welcome{
     padding: 10px;
-    background-color: #00a50c;
+    background-color: #4AA7FF;
     margin-bottom: 0;
+    color: #FFD700;
+    text-align: center;
  }
 
  .nv{
     padding-right: 15px;
     padding-left:  15px;
-    background-color: #00a50c;
+    background-color: #F4E1B3;
     margin-top: 0;
- }
-
- .line {
-    border: 0;
-    margin: 0;
-    height: 2px;
-    background-color: #005806;
  }
 
  .search {
@@ -45,6 +40,15 @@
    background-color: #dfdfdf;
  }
 
+  .navHead {
+  color: #3CB371;
+}
+
+.navHead:hover{
+  color: #007B82;
+}
+
+
  .homeTrips {
    color: #005806;
  }
@@ -53,7 +57,34 @@
    color: #aa1515;
  }
 
- .navHead {
-   color: #0534b3;
-   text-align: center;
+
+ .trips {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #FF9E9D;
+  padding: 10px;
+ }
+
+ .trips > div {
+  margin-bottom: 20px;
+ }
+ 
+ .tripsHead {
+  color: #007B82;
+ }
+
+ .trips a{
+  color: #FF9E9D;
+ }
+
+ .trips a:hover{
+  color: #FF6F3C;
+ }
+
+ .trips hr {
+  border: 1px solid #007B82;
+  width: 100%;
  }

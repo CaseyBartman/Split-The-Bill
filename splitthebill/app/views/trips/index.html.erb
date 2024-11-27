@@ -1,13 +1,9 @@
-<div class = "p-2">
-  <p style="color: green"><%= notice %></p>
-  <%= link_to 'Back to Home', root_path, class: 'btn btn-primary' %> <!-- Link to Home, must change embedded CSS later! -->
-</div>  
-<div class = "p-2">
+<div class = "trips">
   <% @trips.each do |trip| %>
     <div>
-      <h3><%= trip.name %></h3>
+      <h3 class = "tripsHead"><%= trip.name %></h3>
       <p><%= trip.start_date %> - <%= trip.end_date %></p>
-      <p>Participants: 
+      <p><strong class = "tripsHead">Participants: </strong>
         <% trip.users.each do |user| %>
           <%= user.name %>
           <% if user != trip.users.last %>, <% end %>
@@ -15,6 +11,7 @@
       </p>
       <%= link_to 'Show', trip_path(trip) %>
     </div>
+    <hr class>
   <% end %>
   <%= link_to "New trip", new_trip_path %>
 </div>

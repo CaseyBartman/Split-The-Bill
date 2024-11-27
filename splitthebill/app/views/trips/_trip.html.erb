@@ -1,16 +1,13 @@
-<div id="<%= dom_id trip %>" class = "p-2">
-  <p>
-    <strong>Name:</strong>
-    <%= trip.name %>
-  </p>
+<div id="<%= dom_id trip %>" class = "trips">
+  <h4 class = "tripsHead"><%= trip.name %></h4>
 
   <p>
-    <strong>Start date:</strong>
+    <strong class = "tripsHead">Start date:</strong>
     <%= trip.start_date %>
   </p>
 
   <p>
-    <strong>End date:</strong>
+    <strong class = "tripsHead"> End date:</strong>
     <%= trip.end_date %>
   </p>
 </div>
