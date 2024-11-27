@@ -29,4 +29,17 @@
     <%= expense.date %>
   </p>
 
+  <!-- Carter, this is the contributions data! -->
+  <div class="contributions">
+    <p><strong>Contributions:</strong></p>
+    <ul>
+      <% expense.contributions.includes(:user).each do |contribution| %>
+        <li>
+          <strong><%= contribution.user.name %></strong>: 
+          <%= number_to_currency(contribution.amount) %> 
+          (<%= contribution.paid ? 'Paid' : 'Not Paid' %>)
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
