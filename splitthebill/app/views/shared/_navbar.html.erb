@@ -19,6 +19,22 @@
         <%= link_to 'Trips', trips_path, class: 'nav-link navHead' %> <!-- Link to Trips index using the cool link_to funcionality! -->
       </li>
 
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to 'Edit Profile', edit_user_registration_path, class: 'nav-link navHead' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link navHead' %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to 'Sign In', new_user_session_path, class: 'nav-link navHead' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Sign Up', new_user_registration_path, class: 'nav-link navHead' %>
+        </li>
+      <% end %>
+
       <li class="nav-item">
         <a class="nav-link disabled navHead" href="#">Admin</a>
       </li>

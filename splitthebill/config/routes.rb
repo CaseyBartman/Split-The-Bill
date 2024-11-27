@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   # Devise routes
   devise_for :users
   
-  resources :users, only: [:index, :show, :new, :create] # Note, I left out a few!
+  resources :users, only: [:index, :show] # Note, I left out a few! 
+  #, :new, :create these left out because it conflicts with devise
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
