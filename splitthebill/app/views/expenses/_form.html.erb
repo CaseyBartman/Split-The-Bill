@@ -50,14 +50,42 @@
   <!-- Hack to fix url generation error with edit -->
   <%= form.hidden_field :trip_id, value: @trip.id %> 
   
-<!-- Contributions Section -->
-  <h3>Participants' Contributions</h3>
-  <%= form.fields_for :contributions do |contribution_fields| %>
+<h3>Participants' Contributions</h3>
+
+  <!-- For the new expense (create) -->
+  <% if @expense.new_record? %>
+<%= form.fields_for :contributions do |contribution_fields| %>
     <div>
       <%= contribution_fields.label :amount, "#{contribution_fields.object.user.name}" %>
       <%= contribution_fields.hidden_field :user_id %>
       <%= contribution_fields.text_field :amount %>
       <%= contribution_fields.check_box :paid %>
     </div>
+  <% end %>
+
+  <!-- For the edit (update) view! -->
+  <% else %>
+  <% already_processed = [] %>
+    <%= form.fields_for :contributions do |contribution_fields| %>
+      <% @participants.each do |participant| %> 
+      <% contribution = @expense.contributions.find { |c| c.user_id == participant.user.id } %>
+      <% if already_processed.include?(contribution.id) %>
+        <% break %> <!-- Exit the loop once we've seen this contribution -->
+      <% else %>
+        <!-- Add the contribution.id to the already_processed array -->
+        <% already_processed << contribution.id %>
+      <% end %>
+      <!-- Debugging statement to print out the details of the current contribution -->
+          <%= "DEBUG: Contribution ID: #{contribution.id}, User: #{contribution.user.name}, Amount: #{contribution.amount}, Paid: #{contribution.paid}" %>
+          
+        <div>
+          <%= contribution_fields.label :amount, "#{contribution.user.name}" %>
+          <%= contribution_fields.hidden_field :id, value: contribution.id %> <!-- This makes sure Rails knows it's an existing contribution -->
+          <%= contribution_fields.hidden_field :user_id, value: contribution.user.id %>
+          <%= contribution_fields.text_field :amount, value: contribution.amount %>
+          <%= contribution_fields.check_box :paid, checked: contribution.paid %>
+        </div>
+      <% end %>
+    <!-- <% end %> -->
   <% end %>
 <% end %>

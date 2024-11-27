@@ -61,8 +61,6 @@ def create
   #Rails.logger.debug "Expense Params: #{expense_params.inspect}"
   #Rails.logger.debug "Contributions Params: #{expense_params[:contributions_attributes].inspect}" if expense_params[:contributions_attributes]
 
-
-
   respond_to do |format|
     if @expense.save
       format.html { redirect_to trip_expenses_path(@expense.trip), notice: "Expense was successfully created." }
@@ -125,7 +123,7 @@ end
     def expense_params
       params.require(:expense).permit(
         :trip_id, :name, :expense_type, :amount, :payer_id, :date,
-        contributions_attributes: [:user_id, :amount, :paid]
+        contributions_attributes: [:id, :user_id, :amount, :paid]
       )
     end
 end
