@@ -3,8 +3,9 @@
 <%= render @expense %>
 
 <div>
-  <%= link_to "Edit this expense", edit_expense_path(@expense) %> |
-  <%= link_to "Back to expenses", expenses_path %>
-
-  <%= button_to "Destroy this expense", @expense, method: :delete %>
+  <%= link_to "Edit this expense", edit_trip_expense_path(@expense.trip, @expense) %> |
+  <%= link_to "Back to expenses", trip_expenses_path(@expense.trip) %>
+  <!-- SEEMS TO BE AN ISSUE HERE!!!! -->
+  <%= button_to "Destroy this expense", trip_expense_path(@expense.trip, @expense), method: :delete %>
 </div>
+

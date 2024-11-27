@@ -3,5 +3,6 @@ class Contribution < ApplicationRecord
   belongs_to :user
 
   attribute :paid, :boolean, default: false
-  validates :amount, numericality: { greater_than_or_equal_to: 0 } #Change this later
+  validates :amount, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validates :user_id, presence: true
 end
