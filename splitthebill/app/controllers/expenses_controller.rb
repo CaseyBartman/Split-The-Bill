@@ -21,6 +21,15 @@ class ExpensesController < ApplicationController
     @trip = Trip.find(params[:trip_id])  #Find the trip based on the trip_id passed in params
     @expense = @trip.expenses.new  #Create a new expense related to the trip
     @participants = @trip.participants.includes(:user)  #Get the participants with the associated users, this should work!
+
+    # Build contributions for all participants
+    @participants.each do |participant|
+      @expense.contributions.build(user: participant.user)
+    end    
+
+    # Rails.logger.debug "Expense Params: #{expense_params.inspect}"
+    # Rails.logger.debug "Contributions Params: #{expense_params[:contributions_attributes].inspect}" if expense_params[:contributions_attributes]
+  
   end
   
 
@@ -30,6 +39,13 @@ def edit
   @expense = Expense.find(params[:id])
   @trip = @expense.trip #Since our trip needs to be associated with the expense!!!
   @participants = @trip.participants.includes(:user)  #Get the participants with the associated users, this should work!
+
+
+  # # Pre-load contributions for the form
+  # @participants.each do |participant|
+  #   @expense.contributions.build(user: participant.user) unless @expense.contributions.exists?(user_id: participant.user.id)
+  # end
+
   puts "Trip ID in Edit: #{@expense.trip_id}"
 end
 
@@ -41,6 +57,12 @@ def create
   @expense = @trip.expenses.new(expense_params)  #Create a new expense related to the trip!
   @participants = @trip.participants.includes(:user)
   puts "Expense ID in create: #{@expense.id}"
+
+  #Rails.logger.debug "Expense Params: #{expense_params.inspect}"
+  #Rails.logger.debug "Contributions Params: #{expense_params[:contributions_attributes].inspect}" if expense_params[:contributions_attributes]
+
+
+
   respond_to do |format|
     if @expense.save
       format.html { redirect_to trip_expenses_path(@expense.trip), notice: "Expense was successfully created." }
@@ -57,6 +79,11 @@ end
     @expense = Expense.find(params[:id])
     @trip = @expense.trip #Since our trip needs to be associated with the expense!!!
     @participants = @trip.participants.includes(:user)  #Get the participants with the associated users, this should work!
+
+    # Pre-load contributions for the form
+    # @participants.each do |participant|
+    #   @expense.contributions.build(user: participant.user) unless @expense.contributions.exists?(user_id: participant.user.id)
+    # end
 
     puts "Trip ID in update: #{@expense.trip_id}"
     respond_to do |format|
@@ -96,6 +123,9 @@ end
 
     #Param helper method!
     def expense_params
-      params.require(:expense).permit(:trip_id, :name, :expense_type, :amount, :payer_id, :date, contributions_attributes: [:user_id, :amount, :paid])
+      params.require(:expense).permit(
+        :trip_id, :name, :expense_type, :amount, :payer_id, :date,
+        contributions_attributes: [:user_id, :amount, :paid]
+      )
     end
 end

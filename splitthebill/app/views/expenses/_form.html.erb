@@ -31,10 +31,10 @@
     <%= form.text_field :amount %>
   </div>
 
-  <!-- Payer Selection -->
+  <!-- Payer Selection-->
   <div>
     <%= form.label :payer_id, "Who Paid?" %>
-    <%= form.collection_select :payer_id, User.all, :id, :name, prompt: "Select a Payer" %>
+    <%= form.collection_select :payer_id, @participants.map(&:user), :id, :name, prompt: "Select a Payer" %>
   </div>
 
   <div>
@@ -49,15 +49,15 @@
 
   <!-- Hack to fix url generation error with edit -->
   <%= form.hidden_field :trip_id, value: @trip.id %> 
-
-
-  <!-- Contributions Section for Each Participant -->
-<h3>Participants' Contributions</h3>
-<% @participants.each do |participant| %>
-  <div>
-    <%= form.label "expense[contributions_attributes][#{participant.user.id}][amount]", "#{participant.user.name}" %>
-    <%= form.text_field "expense[contributions_attributes][#{participant.user.id}][amount]", value: 0 %> <!-- Default value, can be updated -->
-    <%= form.check_box "expense[contributions_attributes][#{participant.user.id}][paid]", checked: false %> <!-- Checkbox to track if paid -->
-  </div>
-<% end %>
+  
+<!-- Contributions Section -->
+  <h3>Participants' Contributions</h3>
+  <%= form.fields_for :contributions do |contribution_fields| %>
+    <div>
+      <%= contribution_fields.label :amount, "#{contribution_fields.object.user.name}" %>
+      <%= contribution_fields.hidden_field :user_id %>
+      <%= contribution_fields.text_field :amount %>
+      <%= contribution_fields.check_box :paid %>
+    </div>
+  <% end %>
 <% end %>
