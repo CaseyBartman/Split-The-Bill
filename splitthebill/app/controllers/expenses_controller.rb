@@ -76,14 +76,14 @@ end
   def update
     @expense = Expense.find(params[:id])
     @trip = @expense.trip #Since our trip needs to be associated with the expense!!!
-    @participants = @trip.participants.includes(:user)  #Get the participants with the associated users, this should work!
+    # @participants = @trip.participants.includes(:user)  #Get the participants with the associated users, this should work!
 
     # Pre-load contributions for the form
     # @participants.each do |participant|
     #   @expense.contributions.build(user: participant.user) unless @expense.contributions.exists?(user_id: participant.user.id)
     # end
 
-    puts "Trip ID in update: #{@expense.trip_id}"
+    # puts "Trip ID in update: #{@expense.trip_id}"
     respond_to do |format|
       if @expense.update(expense_params)
         format.html { redirect_to trip_expenses_path(@trip, @expense), notice: "Expense was successfully updated." }

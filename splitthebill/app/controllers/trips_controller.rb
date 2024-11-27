@@ -22,7 +22,9 @@ class TripsController < ApplicationController
 
   # GET /trips/1/edit
   def edit
+    @users = User.all
   end
+
 
   # POST /trips or /trips.json
   def create
