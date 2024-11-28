@@ -100,3 +100,65 @@
   background-color: #007B82;
   color: #FF9E9D !important;
  }
+
+ .expenses table {
+  border-collapse: collapse;
+ }
+
+ .expenses tr, th, td {
+  border: 2px solid #007B82;
+  padding: 10px;
+  color: #007B82;
+ }
+
+.expenses .topRow th {
+  background-color: #FF9E9D;;
+}
+
+ .expenses tr:nth-child(even) {
+  background-color: #FF9E9D;
+}
+
+.expenses tr:nth-child(odd) {
+  background-color: #F4E1B3;
+}
+
+ .expenses {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+ }
+
+ .expenses a {
+  color: #007B82;
+ }
+
+ .expenses a:hover{
+  color: #3CB371;
+ }
+
+ .expenseButton {
+  margin: 10px;
+  background-color: #FF9E9D;
+  border-width: 0px;
+  color: #007B82 !important;
+  border: 1px solid #007B82;
+ }
+
+ .expenseButton:hover{
+  background-color: #3CB371;
+  color: #FFD700 !important;
+ }
+
+ .paid {
+  background-color: #005806;
+  color: white;
+}
+
+.not-paid {
+  background-color: #aa1515;
+  color: white;
+}
