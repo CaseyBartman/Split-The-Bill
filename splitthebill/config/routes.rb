@@ -3,15 +3,12 @@ Rails.application.routes.draw do
   resources :trips
   resources :home
 
-  # Devise routes
+  # Devise routes for user authentication
   devise_for :users
-  
-  resources :users, only: [:index, :show] # Note, I left out a few! 
-  #, :new, :create these left out because it conflicts with devise
-  
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  # Optionally, only if you need a specific user route, modify this
+  # resources :users, only: [:show] # Keep it simple, and don't duplicate routes
+  
+  # Root route
   root "home#index"
 end

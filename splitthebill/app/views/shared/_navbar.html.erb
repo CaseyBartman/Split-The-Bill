@@ -1,6 +1,7 @@
 <h1 class = "welcome navHead"> Welcome to Split the Bill! </h1>
 <hr class = "line">
 
+
 <nav class="navbar navbar-expand-lg nv">
   <a class="navbar-brand navHead" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,20 +12,13 @@
       <li class="nav-item active">
         <a class="nav-link navHead" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <%= link_to 'Expenses', expenses_path, class: 'nav-link navHead' %> <!-- Link to Expenses index using the cool link_to funcionality! -->
-    </li>
-
-      <li class="nav-item">
-        <%= link_to 'Trips', trips_path, class: 'nav-link navHead' %> <!-- Link to Trips index using the cool link_to funcionality! -->
-      </li>
 
       <% if user_signed_in? %>
         <li class="nav-item">
           <%= link_to 'Edit Profile', edit_user_registration_path, class: 'nav-link navHead' %>
         </li>
         <li class="nav-item">
-          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link navHead' %>
+          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link navHead', id: 'sign-out-link' %>
         </li>
       <% else %>
         <li class="nav-item">

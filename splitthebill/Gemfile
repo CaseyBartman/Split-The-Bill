@@ -77,3 +77,6 @@ gem 'sassc-rails', '>= 2.1.2' # Sass support
 
 #Devise for user authentication
 gem 'devise', '~> 4.8'
+
+#Added for user authentication
+gem 'rails-ujs'
