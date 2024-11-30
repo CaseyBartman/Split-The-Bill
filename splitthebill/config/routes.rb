@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :expenses
-  resources :trips
+  # resources :expenses
+  resources :trips do 
+    resources :expenses
+  end
   resources :home
 
   # Devise routes for user authentication

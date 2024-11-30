@@ -1,42 +1,46 @@
-<%= form_with(model: trip) do |form| %>
-  <% if trip.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
+<div>
+  <%= form_with(model: trip) do |form| %>
+    <% if trip.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
 
-      <ul>
-        <% trip.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :start_date, style: "display: block" %>
-    <%= form.date_field :start_date %>
-  </div>
-
-  <div>
-    <%= form.label :end_date, style: "display: block" %>
-    <%= form.date_field :end_date %>
-  </div>
-
-  <h3>Participants</h3>
-  <div>
-    <% @users.each do |user| %>
-      <div>
-        <%= check_box_tag "trip[user_ids][]", user.id %>
-        <%= label_tag "trip_user_ids_#{user.id}", user.name %>
+        <ul>
+          <% trip.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
       </div>
     <% end %>
-  </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+    <div>
+      <%= form.label :name, style: "display: block" %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class = "p-3">
+      <%= form.label :start_date, style: "display: block" %>
+      <%= form.date_field :start_date %>
+    </div>
+
+    <div class = "p-3">
+      <%= form.label :end_date, style: "display: block" %>
+      <%= form.date_field :end_date %>
+    </div>
+
+    <h4 class="tripsHead">Participants</h4>
+    <div class="row p-3">
+      <% @users.each do |user| %>
+        <div class="col-md-3">
+          <div class="form-check">
+            <%= check_box_tag "trip[user_ids][]", user.id, false, class: "form-check-input", id: "trip_user_ids_#{user.id}" %>
+            <%= label_tag "trip_user_ids_#{user.id}", user.name, class: "form-check-label" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div>
+      <%= form.submit "Update Trip", class: "btn btn-primary tripButton"%>
+    </div>
+  <% end %>
+</div>
