@@ -1,9 +1,9 @@
-<h1>New trip</h1>
+<h4 class = "tripsHead trips">New trip</h4>
 
 <%= render "form", trip: @trip %>
 
 <br>
 
-<div class = "p-2">
-  <%= link_to "Back to trips", trips_path %>
+<div class = "p-2 trips">
+  <%= link_to "Back to trips", trips_path, , class: "btn btn-primary tripButton" %>
 </div>

@@ -9,9 +9,9 @@
           <% if user != trip.users.last %>, <% end %>
         <% end %>
       </p>
-      <%= link_to 'Show', trip_path(trip) %>
+      <%= link_to 'Show', trip_path(trip), class: "btn btn-primary tripButton" %>
     </div>
     <hr class>
   <% end %>
-  <%= link_to "New trip", new_trip_path %>
+  <%= link_to "New trip", new_trip_path, class: "btn btn-primary tripButton" %>
 </div>
