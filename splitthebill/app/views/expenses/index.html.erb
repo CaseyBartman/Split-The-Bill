@@ -19,7 +19,7 @@
       <% @expenses.each do |expense| %>
         <tr>
           <!-- Making the Expense Name a link! -->
-          <td><%= link_to expense.name, trip_expense_path(expense.trip, expense) %></td>
+          <td><%= link_to expense.name, edit_trip_expense_path(expense.trip, expense) %></td>
           <td><%= expense.expense_type %></td>
           <td><%= number_to_currency(expense.amount) %></td>
           <td><%= expense.payer.name %></td>
@@ -87,7 +87,8 @@
         <% unpaid_contributions.each do |contribution| %>
           <tr>
             <!--Again, here we link the expense IN its name. Just grabbing values from the DB to show in the view! -->
-            <td><%= link_to contribution.expense.name, trip_expense_path(contribution.expense.trip, contribution.expense) %></td>
+            <!-- <td><%= link_to contribution.expense.name, trip_expense_path(contribution.expense.trip, contribution.expense) %></td> -->
+            <td><%= link_to contribution.expense.name, edit_trip_expense_path(contribution.expense.trip, contribution.expense) %></td> 
             <td><%= contribution.expense.expense_type %></td>
             <td><%= contribution.expense.date.strftime('%B %d, %Y') %></td>
             <td><%= number_to_currency(contribution.amount) %></td>
