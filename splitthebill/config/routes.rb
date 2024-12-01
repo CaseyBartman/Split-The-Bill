@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :expenses
   end
   resources :home
-  resources :users, only: [:index, :show, :new, :create] # Note, a few are left out, because we use Devise
+  #resources :users, only: [:index, :show, :new, :create] # Note, a few are left out, because we use Devise
 
   devise_for :users
 
@@ -15,5 +15,5 @@ Rails.application.routes.draw do
    patch 'users/:id/pay_all_contributions', to: 'contributions#pay_all_contributions', as: 'pay_all_contributions'
 
   # Defines the root path route ("/")
-  root "home#index"
+  root "trips#index"
 end
