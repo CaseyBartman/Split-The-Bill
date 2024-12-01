@@ -64,12 +64,12 @@
 
 <hr>
 <% @trip.participants.each do |participant| %>
- <% unpaid_contributions = participant.user.contributions
-                                         .includes(:expense)
-                                         .where(paid: false, expense: { trip_id: @trip.id }) %> 
-                                         <!-- ^^^Note, here we filter for only the MATCHING trip based on the trip id!!!! -->
-  <!-- MAYBE MOVE THIS LOGIC TO THE CONTROLLER!!!! -->
-  <!-- <% unpaid_contributions = participant.user.contributions.includes(:expense).where(paid: false) %> -->
+  <% unpaid_contributions = participant.user.contributions
+                                       .includes(:expense)
+                                       .where(paid: false)
+                                       .where(expenses: { trip_id: @trip.id }) %> 
+                                       <!-- ^^^Note, here we filter for only the MATCHING trip based on the trip id!!!! -->
+                                       <!-- MAYBE MOVE THIS LOGIC TO THE CONTROLLER!!!! -->
 
   <% if unpaid_contributions.any? %>
     <h4><%= participant.user.name %>: Remaining Payments</h4>
@@ -86,9 +86,8 @@
       <tbody>
         <% unpaid_contributions.each do |contribution| %>
           <tr>
-            <!--Again, here we link the expense IN its name. Just grabbing values from the DB to show in the view! -->
-            <!-- <td><%= link_to contribution.expense.name, trip_expense_path(contribution.expense.trip, contribution.expense) %></td> -->
-            <td><%= link_to contribution.expense.name, edit_trip_expense_path(contribution.expense.trip, contribution.expense) %></td> 
+             <!--Again, here we link the expense IN its name. Just grabbing values from the DB to show in the view! -->
+            <td><%= link_to contribution.expense.name, edit_trip_expense_path(contribution.expense.trip, contribution.expense) %></td>
             <td><%= contribution.expense.expense_type %></td>
             <td><%= contribution.expense.date.strftime('%B %d, %Y') %></td>
             <td><%= number_to_currency(contribution.amount) %></td>
@@ -105,18 +104,10 @@
       <tfoot>
         <tr>
           <td colspan="3"><strong>Total Remaining:</strong></td>
-          <td colspan="2">
-            <%= number_to_currency(unpaid_contributions.sum(:amount)) %>
-          </td>
+          <td colspan="2"><%= number_to_currency(unpaid_contributions.sum(:amount)) %></td>
         </tr>
       </tfoot>
     </table>
-    <!-- <div class="pay-all"> MAYBE ADD LATER?-->
-      <!-- <%= form_with url: pay_all_contributions_path(participant.user), method: :patch, local: true do %>-->
-      <!-- <%= hidden_field_tag :trip_id, @trip.id %>-->  <!-- Now, we've got the trip in the route! -->
-       <!--  <%= submit_tag "Pay All", class: "btn btn-primary" %>-->
-      <!-- <% end %>-->
-    <!-- </div> -->
   <% else %> <!-- Case for if a participant has no remaining payments!!!-->
     <h4><%= participant.user.name %>: All payments made! Thank you, <%= participant.user.name %>!</h4>
   <% end %>
