@@ -101,6 +101,25 @@
   color: #FF9E9D !important;
  }
 
+.tripForm {
+  padding: 5px;
+}
+
+.tripForm input[type="text"] {
+  color: #007B82;
+  border: 1px solid #007B82;
+}
+
+.tripForm input[type="date"] {
+  color: #007B82;
+  border: 1px solid #007B82;
+}
+
+.trips select {
+  color: #007B82;
+  border: 1px solid #007B82;
+}
+
  .expenses table {
   border-collapse: collapse;
  }
@@ -168,4 +187,12 @@
   color: #FFD700;
   text-align: center;
   padding: 10px;
+}
+
+.footer a {
+  color: #F4E1B3;
+}
+
+.footer a:hover{
+  color: #007B82;
 }

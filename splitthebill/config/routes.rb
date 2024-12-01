@@ -4,13 +4,14 @@ Rails.application.routes.draw do
     resources :expenses
   end
   resources :home
+  resources :users, only: [:index, :show, :new, :create] # Note, a few are left out, because we use Devise
 
-  # Devise routes for user authentication
-  devise_for :users
+   #Custom route for marking an individual contribution as paid!
+   patch 'contributions/:id/mark_paid', to: 'contributions#mark_paid', as: 'mark_contribution_paid'
 
-  # Optionally, only if you need a specific user route, modify this
-  # resources :users, only: [:show] # Keep it simple, and don't duplicate routes
-  
-  # Root route
+   #Custom route for marking all contributions for a user as paid!
+   patch 'users/:id/pay_all_contributions', to: 'contributions#pay_all_contributions', as: 'pay_all_contributions'
+
+  # Defines the root path route ("/")
   root "home#index"
 end

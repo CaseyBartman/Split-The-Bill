@@ -5,7 +5,6 @@ class ExpensesController < ApplicationController
   
   # GET /expenses or /expenses.json
   def index
-    #@expenses = Expense.all
     @expenses = @trip.expenses
   end
 

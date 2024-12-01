@@ -1,9 +1,10 @@
-<h1>Editing expense</h1>
+<h4 class = "trips tripsHead">Editing Expense</h4>
 
 <%= render "form", expense: @expense %>
 
 <br>
 
-<div>
-  <%= link_to "Show this expense", trip_expenses_path(@expense.trip) %> |
+<div class = "trips">
+  <%= link_to "Back to expenses", trip_expenses_path(@expense.trip), class: 'btn btn-primary tripButton'%>
+  <%= button_to "Destroy this expense", trip_expense_path(@expense.trip, @expense), method: :delete, class: 'btn btn-primary tripButton' %>
 </div>
