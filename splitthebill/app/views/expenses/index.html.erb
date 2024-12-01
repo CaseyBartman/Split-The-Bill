@@ -2,10 +2,6 @@
 
 <div class = "expenses">
   <h4 class = "tripsHead">Expenses</h4>
-  <!-- JUST A START WITH THE TABLE, IDK. I trust you haha. Shows how to access the participant stuff. -->
-  <!-- Very ugly. But gives you an idea of what I mean haha -->
-  <!-- This doesn't use the whole "render expense" thing, so if you want to figure out how that works, go ahead!!!>
-  <!-- remember to also leave room to link "editing" "and "destroying" expenses etc. -->
   <table>
   <thead>
     <tr class = "topRow">
@@ -22,7 +18,7 @@
 <tbody>
   <% @expenses.each do |expense| %>
     <tr>
-      <!-- Make the Expense Name a link -->
+      <!-- Making the Expense Name a link! -->
       <td><%= link_to expense.name, trip_expense_path(expense.trip, expense) %></td>
       <td><%= expense.expense_type %></td>
       <td><%= number_to_currency(expense.amount) %></td>
@@ -45,20 +41,23 @@
 </tbody>
   <tfoot>
     <tr>
-      <td colspan="5"><strong>Total Contributions:</strong></td>
+      <td colspan="2"><strong>Total Expenses:</strong></td> <!-- Colspan lets us choose how many 'col'umns an elemenet 'spans'! -->
+      <td colspan="2"><%= number_to_currency(@expenses.sum(&:amount)) %></td>
+      <td colspan="1"><strong>Individual Contributions:</strong></td> <!-- Again, see the 'strong' tag. We use it here to emphasize this title -->
+                                                                      <!-- You could just select it using CSS and bold it there, but this provides more semantic information -->
+
       <% @trip.participants.each do |participant| %>
         <th>
           <%= number_to_currency(
             @expenses.sum do |expense| 
               expense.contributions.where(user_id: participant.user.id).sum(:amount)
             end
-          ) %>
+          ) %> <!-- Awesome helper function! Used in conjunction with a filter to sum up amounts using a nifty quantifier -->
         </th>
       <% end %>
     </tr>
   </tfoot>
 </table>
 
-<%= link_to "New expense", new_trip_expense_path(@trip), class: 'btn btn-primary expenseButton'%> <!-- Make sure to link to the new expense page within the current trip -->
-<%= link_to 'Back to Home', root_path, class: 'btn btn-primary expenseButton' %> <!-- Link to Home, again, switch to take out embedded CSS! -->
-
+<%= link_to "New expense", new_trip_expense_path(@trip), class: 'btn btn-primary expenseButton'%> <!--  Linking to the new expense page within the current trip -->
+<%= link_to 'Back to Home', root_path, class: 'btn btn-primary expenseButton' %>
