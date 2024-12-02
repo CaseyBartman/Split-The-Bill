@@ -51,8 +51,8 @@
     <!-- Hack to fix url generation error with edit -->
     <%= form.hidden_field :trip_id, value: @trip.id %> 
     
-  <h4 class  ="tripsHead">Participants' Contributions</h4>
-
+  <h4 class = "tripsHead">Participants' Contributions</h4>
+  <div class = "trips tripForm">
     <!-- For the new expense (create) -->
     <% if @expense.new_record? %>
   <%= form.fields_for :contributions do |contribution_fields| %>
@@ -63,7 +63,7 @@
         <%= contribution_fields.check_box :paid %>
       </div>
     <% end %>
-
+  </div>
     <!-- For the edit (update) view! -->
     <% else %>
     <% already_processed = [] %>
