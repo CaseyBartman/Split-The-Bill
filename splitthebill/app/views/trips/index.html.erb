@@ -1,4 +1,5 @@
 <div class = "trips">
+<% if current_user %>
   <% @trips.each do |trip| %>
     <div>
       <h3 class = "tripsHead"><%= trip.name %></h3>
@@ -14,4 +15,8 @@
     <hr class>
   <% end %>
   <%= link_to "New trip", new_trip_path, class: "btn btn-primary tripButton" %>
+<% else  %>
+  <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-primary tripButton' %>
+<% end %>
 </div>
+
