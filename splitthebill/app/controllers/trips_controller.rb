@@ -1,11 +1,15 @@
 class TripsController < ApplicationController
   before_action :set_trip, only: %i[ show edit update destroy ]
-
-  # GET /trips or /trips.json
   def index
-    @trips = Trip.all
+    if current_user
+      # Only include trips where the current user is a participant
+      @trips = Trip.joins(:users).where(users: { id: current_user.id }).distinct
+    else
+      @trips = []
+    end
+  
+    @user = current_user
     @users = User.all
-    #@trips = Trip.includes(participants: :user).all
   end
 
   # GET /trips/1 or /trips/1.json

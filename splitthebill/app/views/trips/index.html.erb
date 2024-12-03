@@ -1,22 +1,22 @@
-<div class = "trips">
-<% if current_user %>
-  <% @trips.each do |trip| %>
-    <div>
-      <h3 class = "tripsHead"><%= trip.name %></h3>
-      <p><%= trip.start_date %> - <%= trip.end_date %></p>
-      <p><strong class = "tripsHead">Participants: </strong>
-        <% trip.users.each do |user| %>
-          <%= user.name %>
-          <% if user != trip.users.last %>, <% end %>
-        <% end %>
-      </p>
-      <%= link_to 'Show', trip_path(trip), class: "btn btn-primary tripButton" %>
-    </div>
-    <hr class>
+<div class="trips">
+  <% if current_user %>
+    <% if @trips.any? %>
+      <% @trips.each do |trip| %>
+        <div>
+          <h3 class="tripsHead"><%= trip.name %></h3>
+          <p><%= trip.start_date %> - <%= trip.end_date %></p>
+          <p><strong class="tripsHead">Participants:</strong>
+            <%= trip.users.map(&:name).join(', ') %>
+          </p>
+          <%= link_to 'Show', trip_path(trip), class: "btn btn-primary tripButton" %>
+        </div>
+        <hr>
+      <% end %>
+    <% else %>
+      <p>No trips found. Make a new trip! </p> 
+    <% end %>
+    <%= link_to "New trip", new_trip_path, class: "btn btn-primary tripButton" %>
+  <% else %>
+    <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-primary tripButton' %>
   <% end %>
-  <%= link_to "New trip", new_trip_path, class: "btn btn-primary tripButton" %>
-<% else  %>
-  <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-primary tripButton' %>
-<% end %>
 </div>
-
