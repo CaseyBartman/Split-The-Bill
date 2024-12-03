@@ -1,17 +1,40 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+dinner:
+  trip: bahamas
+  name: "1st Dinner"
+  expense_type: "Food"
+  amount: 40.00
+  payer: carter
+  date: 2024-12-02
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
 
-one:
-  trip: one
-  name: MyString
-  expense_type: MyString
-  amount: 9.99
-  payer: one
-  date: 2024-11-21
+airbnb:
+  trip: bahamas
+  name: "Air BNB Bill"
+  expense_type: "Lodging"
+  amount: 400.00
+  payer: jemin
+  date: 2024-12-03
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
 
-two:
-  trip: two
-  name: MyString
-  expense_type: MyString
-  amount: 9.99
-  payer: two
-  date: 2024-11-21
+gas:
+  trip: bahamas
+  name: "Gas Money to Airport"
+  expense_type: "Gas"
+  amount: 80.00
+  payer: casey
+  date: 2024-12-05
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+pizza:
+  trip: bahamas_boogaloo
+  name: "Pizza"
+  expense_type: "Food"
+  amount: 30.00
+  payer: krishna
+  date: 2024-12-06
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+

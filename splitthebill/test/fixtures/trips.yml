@@ -1,11 +1,14 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+bahamas:
+  name: "Bahamas!"
+  start_date: 2024-12-01
+  end_date: 2024-12-30
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
 
-one:
-  name: MyString
-  start_date: 2024-11-21
-  end_date: 2024-11-21
+bahamas_boogaloo:
+  name: "Bahamas 2: Electric Boogaloo"
+  start_date: 2024-12-01
+  end_date: 2025-01-06
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
 
-two:
-  name: MyString
-  start_date: 2024-11-21
-  end_date: 2024-11-21
