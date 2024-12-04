@@ -17,6 +17,7 @@
   <%= link_to "New trip", new_trip_path, class: "btn btn-primary tripButton" %>
 <% else  %>
   <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-primary tripButton' %>
+<p>You are currently not signed in. Please press "Sign In" below to view, create, or show trips and/or expenses</p>
 <% end %>
 </div>
 
