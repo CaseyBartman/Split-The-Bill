@@ -198,4 +198,88 @@
   color: #007B82;
 }
 
+.about {
+  margin-right: 30px;
+}
 
+
+.card-img-overlay {
+  position: absolute;
+  top: 10%;
+  text-align: center;
+  color: white;
+  padding: 5px;
+}
+
+.homeCaption{
+  position: relative;
+  color: #001368;
+  text-align: center;
+}
+
+.homeCaption a{
+  color: #001368;
+}
+
+.homeCaption a:hover{
+  color: #ffcd25;
+}
+
+.card {
+  border: 2px solid #001368;
+  color: #001368;
+}
+
+.card h5 {
+  text-align: center;
+}
+
+
+.aboutFounder {
+  height: auto;
+}
+
+.founderPic{
+  width: 40%;
+  height: auto;
+  padding: 15px;
+}
+
+.founder{
+  text-align: right;
+}
+
+.plane {
+  width: 10%;
+  height: auto;
+  margin-left: 10px;
+}
+.star {
+  padding-bottom: 10px;
+  color: #e3e300;
+}
+
+.reviews {
+  color: #001368;
+  text-align: center;
+  margin-top: 25px;
+}
+
+.homeSign{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: #001368;
+  margin-bottom: 15px;
+  margin-top: 15px;
+
+}
+
+.homeSign a{
+  color: #001368;
+}
+
+.homeSign a:hover{
+  color: #ffcd25;
+}
