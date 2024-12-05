@@ -15,5 +15,5 @@ Rails.application.routes.draw do
    patch 'users/:id/pay_all_contributions', to: 'contributions#pay_all_contributions', as: 'pay_all_contributions'
 
   # Defines the root path route ("/")
-  root "trips#index"
+  root "home#index"
 end

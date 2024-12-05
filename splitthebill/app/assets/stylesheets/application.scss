@@ -31,11 +31,6 @@
     margin-top: 0;
  }
 
-
- .home{
-   background-color: #dfdfdf;
- }
-
  
 .navHead {
   color: #3CB371;
@@ -44,16 +39,6 @@
 .navHead:hover{
   color: #007B82;
 }
-
-
- .homeTrips {
-   color: #005806;
- }
-
- .homeExpenses {
-   color: #aa1515;
- }
-
 
  .trips {
   display: flex;
@@ -252,7 +237,7 @@
 .plane {
   width: 10%;
   height: auto;
-  margin-left: 10px;
+  margin-left: 100px;
 }
 .star {
   padding-bottom: 10px;
