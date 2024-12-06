@@ -17,7 +17,7 @@
  @import "bootstrap";
  .welcome {
   padding: 10px;
-  background-color: #4AA7FF;
+  background-color: #5b7bd2;
   margin-bottom: 0;
   color: #FFD700;
   text-align: center;
@@ -29,16 +29,18 @@
   padding-right: 15px;
   padding-left: 15px;
   margin-top: 0;
-  background-color: #4AA7FF;
+  background-color: #5b7bd2;
   font-family: 'Lobster', cursive; 
 }
 
+
 .navHead {
-  color: black;
+  color: white;
+  background-color: #001368;
 }
 
 .navHead:hover {
-  color: #4AA7FF;
+  color: black;
 }
 
  .expenses table {
