@@ -1,39 +1,39 @@
-<div class="card">
-  <div class="card-header">
-    <h2>Sign up</h2>
-  </div>
-  <div class="card-body">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+<div class = "container-fluid">
+  <div class="card col-6 logIn mb-5">
+    <div class="card-header">
+      <h4>Welcome! Please Sign Up!</h4>
+    </div>
+    <div class="card-body">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="form-group">
-        <%= f.label :name %><br />
-        <%= f.text_field :name, class: "form-control", autofocus: true, autocomplete: "name" %>
-      </div>
+        <div class="form-group logInForm">
+          <%= f.label :name %><br />
+          <%= f.text_field :name, class: "form-control logInField", autofocus: true, autocomplete: "name" %>
+        </div>
 
-      <div class="form-group">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email" %>
-      </div>
+        <div class="form-group logInForm">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, class: "form-control logInField", autofocus: true, autocomplete: "email" %>
+        </div>
 
-      <div class="form-group">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, class: "form-control", autocomplete: "new-password" %>
-      </div>
+        <div class="form-group logInForm">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, class: "form-control logInField", autocomplete: "new-password" %>
+        </div>
 
-      <div class="form-group">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password" %>
-      </div>
+        <div class="form-group logInForm">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, class: "form-control logInField", autocomplete: "new-password" %>
+        </div>
 
-      <div class="actions">
-        <%= f.submit "Sign up", class: "btn btn-primary" %>
-      </div>
-    <% end %>
-  </div>
+        <div class="form-group text-center logInForm p-3">
+          <%= f.submit "Sign Up", class: "btn btn-primary logInButton"  %>
+        </div>
+      <% end %>
+    </div>
+<p>Returning User? <a href = <%=new_session_path(resource_name)%>> Log In</a>!</p>
 </div>
-
-<%= render "devise/shared/links" %>

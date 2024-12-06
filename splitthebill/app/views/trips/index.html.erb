@@ -1,4 +1,4 @@
-<div class = "trips">
+<div class = "trips container-fluid">
 <% if current_user %>
   <% @trips.each do |trip| %>
     <div>
@@ -16,8 +16,10 @@
   <% end %>
   <%= link_to "New trip", new_trip_path, class: "btn btn-primary tripButton" %>
 <% else  %>
-  <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-primary tripButton' %>
-<p>You are currently not signed in. Please press "Sign In" below to view, create, or show trips and/or expenses</p>
+<div class = "tripsNotSign">
+  <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-primary signButton' %>
+<p>You are currently not signed in. Please press "Sign In" above to view, create, or show trips and/or expenses. Thank You!</p>
 <% end %>
+</div>
 </div>
 
