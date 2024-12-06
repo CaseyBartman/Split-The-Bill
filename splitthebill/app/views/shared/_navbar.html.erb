@@ -1,32 +1,39 @@
-<h1 class="rounded welcome">Split The Bill ™ </h1>
-<nav class="rounded navbar navbar-expand-lg nv">
-  <div class="container text-center">
+<nav class=" navbar navbar-expand-lg nv">
+  <div class="container">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link navHead" href="/home">Home</a>
+      <!-- Left-aligned items -->
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item me-2">
+          <a class="btn btn-warning navHead" href="/home">Home</a>
         </li>
-        <li class="nav-item">
-          <%= link_to 'Trips', trips_path, class: 'nav-link navHead' %> <!-- Link to Trips index using the cool link_to funcionality! -->
+        <li class="nav-item me-2">
+          <%= link_to 'Trips', trips_path, class: 'btn btn-warning navHead' %>
         </li>
+      </ul>
+
+      <!-- Centered Title -->
+      <h1 class="navbar-brand mx-auto welcome">Split The Bill ™</h1>
+
+      <!-- Right-aligned items -->
+      <ul class="navbar-nav ms-auto">
         <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to 'Edit Profile', edit_user_registration_path, class: 'nav-link navHead' %>
+        <li class="nav-item me-2">
+          <%= link_to 'Edit Profile', edit_user_registration_path, class: 'btn btn-warning navHead' %>
         </li>
-        <li class="nav-item">
-          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link navHead', id: 'sign-out-link' %>
+        <li class="nav-item me-2">
+          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'btn btn-warning navHead', id: 'sign-out-link' %>
         </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to 'Sign In', new_user_session_path, class: 'nav-link navHead' %>
+        <% else %>
+        <li class="nav-item me-2">
+          <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-warning navHead' %>
         </li>
-        <li class="nav-item">
-          <%= link_to 'Sign Up', new_user_registration_path, class: 'nav-link navHead' %>
+        <li class="nav-item me-2">
+          <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-warning navHead' %>
         </li>
-      <% end %>
+        <% end %>
       </ul>
     </div>
   </div>

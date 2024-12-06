@@ -15,91 +15,30 @@
 
  */
  @import "bootstrap";
-
- .welcome{
-    padding: 10px;
-    background-color: #4AA7FF;
-    margin-bottom: 0;
-    color: #FFD700;
-    text-align: center;
- }
-
- .nv{
-    padding-right: 15px;
-    padding-left:  15px;
-    background-color: #F4E1B3;
-    margin-top: 0;
- }
-
- 
-.navHead {
-  color: #3CB371;
-}
-
-.navHead:hover{
-  color: #007B82;
-}
-
- .trips {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #3CB371;
+ .welcome {
   padding: 10px;
- }
-
- .trips > div {
-  margin-bottom: 20px;
- }
- 
- .tripsHead {
-  color: #007B82;
- }
-
- .trips a{
-  color: #3CB371;
- }
-
- .trips a:hover{
-  color: #FF9E9D;
- }
-
- .trips hr {
-  border: 1px solid #007B82;
-  width: 100%;
- }
-
- .tripButton {
-  margin: 10px;
-  background-color: #3CB371;
-  border-width: 0px;
-  color: #FFD700 !important;
- }
-
- .tripButton:hover{
-  background-color: #007B82;
-  color: #FF9E9D !important;
- }
-
-.tripForm {
-  padding: 5px;
+  background-color: #4AA7FF;
+  margin-bottom: 0;
+  color: #FFD700;
+  text-align: center;
+  font-family: 'Lobster', cursive;
+  font-size: 30px;
 }
 
-.tripForm input[type="text"] {
-  color: #007B82;
-  border: 1px solid #007B82;
+.nv {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-top: 0;
+  background-color: #4AA7FF;
+  font-family: 'Lobster', cursive; 
 }
 
-.tripForm input[type="date"] {
-  color: #007B82;
-  border: 1px solid #007B82;
+.navHead {
+  color: black;
 }
 
-.trips select {
-  color: #007B82;
-  border: 1px solid #007B82;
+.navHead:hover {
+  color: #4AA7FF;
 }
 
  .expenses table {
@@ -183,6 +122,16 @@
   color: #007B82;
 }
 
+
+
+
+.container-fluid{
+  background-color: #e7e7e7;
+  margin-top: 0px;
+  padding: 10px;
+  padding-top: 50px;
+}
+
 .about {
   margin-right: 30px;
 }
@@ -192,27 +141,28 @@
   position: absolute;
   top: 10%;
   text-align: center;
-  color: white;
+  color: #e7e7e7;
   padding: 5px;
 }
 
 .homeCaption{
   position: relative;
-  color: #001368;
+  color: #e7e7e7;
   text-align: center;
 }
 
 .homeCaption a{
-  color: #001368;
+  color: #e7e7e7;
 }
 
 .homeCaption a:hover{
-  color: #ffcd25;
+  color: #001368;
 }
 
 .card {
   border: 2px solid #001368;
-  color: #001368;
+  background-color: #5b7bd2;
+  color: #efefef;
 }
 
 .card h5 {
@@ -241,7 +191,10 @@
 }
 .star {
   padding-bottom: 10px;
-  color: #e3e300;
+  color: #ffcd25;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .reviews {
@@ -266,5 +219,76 @@
 }
 
 .homeSign a:hover{
-  color: #ffcd25;
+  color: #5b7bd2;
+}
+
+.signButton {
+  color: #e7e7e7 !important;
+  background-color: #001368;
+  border-color: #5b7bd2;
+}
+
+.signButton:hover {
+  color: #e7e7e7 !important;
+  background-color: #5b7bd2;
+  border-color: #001368;
+}
+
+.trips {
+  color: #001368;
+}
+
+.tripsNotSign{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+}
+
+.logIn {
+  display: flex;
+  justify-content: center; 
+  margin: 0 auto;
+}
+
+.logIn h4, .logIn p {
+  text-align: center; 
+  color: #e7e7e7;
+}
+
+.logInButton {
+  background-color: #e7e7e7;
+  border-color: #001368;
+  color: #001368;
+}
+
+.logInButton:hover {
+  background-color: #001368;
+  border-color: #001368;
+  color: #e7e7e7;
+}
+
+.logIn a {
+  color: #e7e7e7;
+}
+
+.logIn a:hover {
+  color: #001368;
+}
+
+.logInForm {
+  color: #e7e7e7;
+}
+
+.logInField{
+  background-color: #e7e7e7;
+  border-color: #001368;
+}
+
+.logInField:focus{
+  background-color: #e7e7e7;
+  border-color: #001368;
+  color: #001368;
 }
