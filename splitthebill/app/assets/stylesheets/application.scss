@@ -19,7 +19,7 @@
   padding: 10px;
   background-color: #5b7bd2;
   margin-bottom: 0;
-  color: #FFD700;
+  color: #000000;
   text-align: center;
   font-family: 'Lobster', cursive;
   font-size: 30px;
@@ -36,7 +36,7 @@
 
 .navHead {
   color: white;
-  background-color: #001368;
+  background-color: #5b7bd2;
 }
 
 .navHead:hover {
@@ -104,25 +104,6 @@
   background-color: #aa1515;
   color: white;
 }
-
-// .footer-container {
-//   background-color: #4AA7FF;
-//   color: #FFD700;
-//   text-align: center;
-//   padding: 10px;
-//  // position: absolute;
-//   width: 100%;
-//   bottom: 0;
-//   margin-bottom: 0;
-// }
-
-// .footer a {
-//   color: #F4E1B3;
-// }
-
-// .footer a:hover{
-//   color: #007B82;
-// }
 
 
 
@@ -321,7 +302,7 @@ body {
   box-sizing: border-box;
 }
 footer{
-  background-color: #111;
+  background-color: #5b7bd2;
   margin-top: auto; /* Pushes the footer to the bottom */
 }
 .footerContainer{
@@ -346,7 +327,7 @@ footer{
 }
 /* Hover affect on social media icon */
 .socialIcons a:hover{
-  background-color: #111;
+  background-color: #5b7bd2;
   transition: 0.5s;
 }
 .socialIcons a:hover i{
@@ -374,20 +355,14 @@ footer{
   opacity: 1;
 }
 .footerBottom{
-  background-color: #000;
-  padding: 20px;
+  background-color: #5b7bd2;
+  // padding: 20px;
   text-align: center;
 }
 .footerBottom p{
   color: white;
 }
-.designer{
-  opacity: 0.7;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 400;
-  margin: 0px 5px;
-}
+
 @media (max-width: 700px){
   .footerNav ul{
       flex-direction: column;
