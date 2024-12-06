@@ -15,29 +15,30 @@
 
  */
  @import "bootstrap";
-
- .welcome{
-    padding: 10px;
-    background-color: #4AA7FF;
-    margin-bottom: 0;
-    color: #FFD700;
-    text-align: center;
- }
-
- .nv{
-    padding-right: 15px;
-    padding-left:  15px;
-    background-color: #F4E1B3;
-    margin-top: 0;
- }
-
- 
-.navHead {
-  color: #3CB371;
+ .welcome {
+  padding: 10px;
+  background-color: #4AA7FF;
+  margin-bottom: 0;
+  color: #FFD700;
+  text-align: center;
+  font-family: 'Lobster', cursive;
+  font-size: 30px;
 }
 
-.navHead:hover{
-  color: #007B82;
+.nv {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-top: 0;
+  background-color: #4AA7FF;
+  font-family: 'Lobster', cursive; 
+}
+
+.navHead {
+  color: black;
+}
+
+.navHead:hover {
+  color: #4AA7FF;
 }
 
  .expenses table {
