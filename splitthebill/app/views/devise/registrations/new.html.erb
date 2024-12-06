@@ -3,7 +3,7 @@
     <h2>Sign up</h2>
   </div>
   <div class="card-body">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { id: "sign-up-form" }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="form-group">
@@ -29,6 +29,14 @@
         <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password" %>
       </div>
 
+      <!-- Terms of Service Checkbox -->
+      <div class="form-check">
+        <input type="checkbox" id="terms-of-service">
+        <label for="terms-of-service">
+        I agree to the <%= link_to "terms of service", terms_of_service_path, target: "_blank" %>
+        </label>
+      </div>
+
       <div class="actions">
         <%= f.submit "Sign up", class: "btn btn-primary" %>
       </div>
@@ -37,3 +45,17 @@
 </div>
 
 <%= render "devise/shared/links" %>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("sign-up-form");
+    const termsCheckbox = document.getElementById("terms-of-service");
+
+    form.addEventListener("submit", function (event) {
+      if (!termsCheckbox.checked) {
+        event.preventDefault(); // Prevent form submission
+        alert("You must agree to the terms of service before signing up.");
+      }
+    });
+  });
+</script>
