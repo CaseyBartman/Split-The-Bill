@@ -1,11 +1,41 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+bahamas_krishna:
+  trip: bahamas
+  user: krishna
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
 
-one:
-  trip: one
-  user: one
-  amount_owed: 9.99
+bahamas_carter:
+  trip: bahamas
+  user: carter
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
 
-two:
-  trip: two
-  user: two
-  amount_owed: 9.99
+bahamas_jemin:
+  trip: bahamas
+  user: jemin
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+bahamas_casey:
+  trip: bahamas
+  user: casey
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+boogaloo_krishna:
+  trip: bahamas_boogaloo
+  user: krishna
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+boogaloo_jemin:
+  trip: bahamas_boogaloo
+  user: jemin
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+boogaloo_casey:
+  trip: bahamas_boogaloo
+  user: casey
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>

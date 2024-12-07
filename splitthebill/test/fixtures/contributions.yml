@@ -1,11 +1,31 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+dinner_krishna:
+  expense: dinner
+  user: krishna
+  amount: 10.00
+  paid: true
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
 
-one:
-  expense: one
-  user: one
-  amount: 9.99
+dinner_carter:
+  expense: dinner
+  user: carter
+  amount: 10.00
+  paid: false
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
 
-two:
-  expense: two
-  user: two
-  amount: 9.99
+dinner_casey:
+  expense: dinner
+  user: casey
+  amount: 10.00
+  paid: true
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+pizza_casey:
+  expense: pizza
+  user: casey
+  amount: 10.00
+  paid: true
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>

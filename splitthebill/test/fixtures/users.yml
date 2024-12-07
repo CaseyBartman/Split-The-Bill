@@ -1,9 +1,34 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+krishna:
+  name: "Krishna"
+  email: "krishnaemail@gmail.com"
+  encrypted_password: "<encrypted_password>"
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
 
-one:
-  name: MyString
-  email: MyString
+carter:
+  name: "Carter"
+  email: "carteremail@gmail.com"
+  encrypted_password: "<encrypted_password>"
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
 
-two:
-  name: MyString
-  email: MyString
+jemin:
+  name: "Jemin"
+  email: "jeminemail@gmail.com"
+  encrypted_password: "<encrypted_password>"
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+casey:
+  name: "Casey"
+  email: "caseyemail@gmail.com"
+  encrypted_password: "<encrypted_password>"
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+new_user:
+  name: "New User"
+  email: "new_user@gmail.com"
+  encrypted_password: "<encrypted_password>"
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
