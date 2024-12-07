@@ -1,23 +1,27 @@
-<p style="color: green"><%= notice %></p>
+<div class = "container-fluid">
+  <div class = "card trips logIn col-5">
+    <p style="color: green"><%= notice %></p>
 
-<%= render @trip %>
-<div class = "trips">
-  <p class = "tripsHead">
-    <strong>Participants</strong>
-  <ul>
-    <% @trip.participants.each do |participant| %>
-      <li>
-        <%= participant.user.name %>:
-        <%= participant.user.email %>
-      </li>
-    <% end %>
-  </ul>
-</div>
-<div class = "trips">
-  <%= link_to "Edit this trip", edit_trip_path(@trip), class: "btn btn-primary tripButton" %>
-  <%= link_to "Back to trips", trips_path, class: "btn btn-primary tripButton" %>
+    <%= render @trip %>
+    <div class = "trips">
+      <p class = "tripsHead">
+        <h5>Participants</h5>
+      <ul>
+        <% @trip.participants.each do |participant| %>
+          <li>
+            <p><%= participant.user.name %>:
+            <%= participant.user.email %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class = "trips">
+      <%= link_to "Edit this trip", edit_trip_path(@trip), class: "btn btn-primary logInButton m-2" %>
+      <%= link_to "Back to trips", trips_path, class: "btn btn-primary logInButton" %>
 
-  <%= link_to 'View Expenses', trip_expenses_path(@trip), class: "btn btn-primary tripButton" %>
+      <%= link_to 'View Expenses', trip_expenses_path(@trip), class: "btn btn-primary logInButton m-2" %>
 
-  <%= button_to "Delete Trip", @trip, class: "btn btn-primary tripButton", method: :delete, class: "btn btn-primary tripButton" %>
+      <%= button_to "Delete Trip", @trip, class: "btn btn-primary logInButton", method: :delete, class: "btn btn-primary logInButton m-2 mb-3" %>
+    </div>
+  </div>
 </div>

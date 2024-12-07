@@ -1,115 +1,119 @@
-<p class="trips"><%= notice %></p>
+<div class = "container-fluid">
+  <p><%= notice %></p>
 
-<div class="expenses">
-  <h4 class="tripsHead">Expenses</h4>
-  <table>
-    <thead>
-      <tr class="topRow">
-        <th>Expense Name</th>
-        <th>Expense Type</th>
-        <th>Total Amount</th>
-        <th>Payer</th>
-        <th>Date</th>
-        <% @trip.participants.each do |participant| %>
-          <th><%= participant.user.name %></th>
-        <% end %>
-      </tr>
-    </thead>
-    <tbody>
-      <% @expenses.each do |expense| %>
-        <tr>
-          <!-- Making the Expense Name a link! -->
-          <td><%= link_to expense.name, edit_trip_expense_path(expense.trip, expense) %></td>
-          <td><%= expense.expense_type %></td>
-          <td><%= number_to_currency(expense.amount) %></td>
-          <td><%= expense.payer.name %></td>
-          <td><%= expense.date.strftime('%B %d, %Y') %></td> <!-- Cool helper function for formatting! -->
-          <% @trip.participants.each do |participant| %>
-            <% contribution = expense.contributions.find { |c| c.user_id == participant.user.id } %>
-            <td>
-              <% if contribution %>
-                <span class="<%= contribution.paid ? 'paid' : 'not-paid' %>">
-                  <%= number_to_currency(contribution.amount) %>
-                </span>
-              <% else %>
-                N/A
-              <% end %>
-            </td>
-          <% end %>
-        </tr>
-      <% end %>
-    </tbody>
-    <tfoot>
-      <tr>
-             <td colspan="2"><strong>Total Expenses:</strong></td> <!-- Colspan lets us choose how many 'col'umns an elemenet 'spans'! -->
-      <td colspan="2"><%= number_to_currency(@expenses.sum(&:amount)) %></td>
-      <td colspan="1"><strong>Individual Contributions:</strong></td> <!-- Again, see the 'strong' tag. We use it here to emphasize this title -->
-                                                                      <!-- You could just select it using CSS and bold it there, but this provides more semantic information -->
-        <% @trip.participants.each do |participant| %>
-          <td>
-            <%= number_to_currency(
-              @expenses.sum do |expense| 
-                expense.contributions.where(user_id: participant.user.id).sum(:amount)
-              end
-            ) %> <!-- Awesome helper function! Used in conjunction with a filter to sum up amounts using a nifty quantifier -->
-          </td>
-        <% end %>
-      </tr>
-    </tfoot>
-  </table>
-
-  <%= link_to "New expense", new_trip_expense_path(@trip), class: 'btn btn-primary expenseButton' %>  <!--  Linking to the new expense page within the current trip -->
-  <%= link_to 'Back to Home', root_path, class: 'btn btn-primary expenseButton' %>
-</div>
-
-<hr>
-<% @trip.participants.each do |participant| %>
-  <% unpaid_contributions = participant.user.contributions
-                                       .includes(:expense)
-                                       .where(paid: false)
-                                       .where(expenses: { trip_id: @trip.id }) %> 
-                                       <!-- ^^^Note, here we filter for only the MATCHING trip based on the trip id!!!! -->
-                                       <!-- MAYBE MOVE THIS LOGIC TO THE CONTROLLER!!!! -->
-
-  <% if unpaid_contributions.any? %>
-    <h4><%= participant.user.name %>: Remaining Payments</h4>
-    <table class="remaining-payments">
+  <div class = "card col-10 trips logIn">
+    <h4 class = "mt-3">Expenses</h4>
+    <table class = "tripsTable expenseTable m-4">
       <thead>
         <tr>
           <th>Expense Name</th>
           <th>Expense Type</th>
+          <th>Total Amount</th>
+          <th>Payer</th>
           <th>Date</th>
-          <th>Amount Owed</th>
-          <th>Mark as Paid</th>
+          <% @trip.participants.each do |participant| %>
+            <th><%= participant.user.name %></th>
+          <% end %>
         </tr>
       </thead>
       <tbody>
-        <% unpaid_contributions.each do |contribution| %>
+        <% @expenses.each do |expense| %>
           <tr>
-             <!--Again, here we link the expense IN its name. Just grabbing values from the DB to show in the view! -->
-            <td><%= link_to contribution.expense.name, edit_trip_expense_path(contribution.expense.trip, contribution.expense) %></td>
-            <td><%= contribution.expense.expense_type %></td>
-            <td><%= contribution.expense.date.strftime('%B %d, %Y') %></td>
-            <td><%= number_to_currency(contribution.amount) %></td>
-            <td>
-              <!-- This is where we use our custom route to "pay" contributions!!! -->
-              <%= form_with url: mark_contribution_paid_path(contribution), method: :patch, local: true do %>
-                <%= check_box_tag 'paid', 'true', contribution.paid, class: 'mark-paid-checkbox', onchange: 'this.form.submit();' %>
-                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-              <% end %>
-            </td>
+            <!-- Making the Expense Name a link! -->
+            <td><%= link_to expense.name, edit_trip_expense_path(expense.trip, expense) %></td>
+            <td><%= expense.expense_type %></td>
+            <td><%= number_to_currency(expense.amount) %></td>
+            <td><%= expense.payer.name %></td>
+            <td><%= expense.date.strftime('%B %d, %Y') %></td> <!-- Cool helper function for formatting! -->
+            <% @trip.participants.each do |participant| %>
+              <% contribution = expense.contributions.find { |c| c.user_id == participant.user.id } %>
+              <td>
+                <% if contribution %>
+                  <span class="<%= contribution.paid ? 'paid' : 'not-paid' %>">
+                    <%= number_to_currency(contribution.amount) %>
+                  </span>
+                <% else %>
+                  N/A
+                <% end %>
+              </td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>
       <tfoot>
         <tr>
-          <td colspan="3"><strong>Total Remaining:</strong></td>
-          <td colspan="2"><%= number_to_currency(unpaid_contributions.sum(:amount)) %></td>
+        <th colspan="2"><strong>Total Expenses:</strong></td> <!-- Colspan lets us choose how many 'col'umns an elemenet 'spans'! -->
+        <th colspan="2"><%= number_to_currency(@expenses.sum(&:amount)) %></td>
+        <th colspan="1"><strong>Individual Contributions:</strong></td> <!-- Again, see the 'strong' tag. We use it here to emphasize this title -->
+                                                                        <!-- You could just select it using CSS and bold it there, but this provides more semantic information -->
+          <% @trip.participants.each do |participant| %>
+            <th>
+              <%= number_to_currency(
+                @expenses.sum do |expense| 
+                  expense.contributions.where(user_id: participant.user.id).sum(:amount)
+                end
+              ) %> <!-- Awesome helper function! Used in conjunction with a filter to sum up amounts using a nifty quantifier -->
+            </th>
+          <% end %>
         </tr>
       </tfoot>
     </table>
-  <% else %> <!-- Case for if a participant has no remaining payments!!!-->
-    <h4><%= participant.user.name %>: All payments made! Thank you, <%= participant.user.name %>!</h4>
-  <% end %>
+    <div class = "justify-content-center mb-3">
+      <%= link_to "New expense", new_trip_expense_path(@trip), class: 'btn btn-primary logInButton expenseButton m-1' %>  <!--  Linking to the new expense page within the current trip -->
+      <%= link_to 'Back to Home', root_path, class: 'btn btn-primary logInButton expenseButton m-1' %>
+    </div>
+  </div>
+
   <hr>
-<% end %>
+  <div class = "card col-10 trips logIn mb-5">
+    <% @trip.participants.each do |participant| %>
+      <% unpaid_contributions = participant.user.contributions
+                                          .includes(:expense)
+                                          .where(paid: false)
+                                          .where(expenses: { trip_id: @trip.id }) %> 
+                                          <!-- ^^^Note, here we filter for only the MATCHING trip based on the trip id!!!! -->
+
+      <% if unpaid_contributions.any? %>
+        <h5 class>Remaining Unpaid Payments For <%= participant.user.name %>:</h5>
+        <table class = "tripsTable m-4">
+          <thead>
+            <tr>
+              <th>Expense Name</th>
+              <th>Expense Type</th>
+              <th>Date</th>
+              <th>Amount Owed</th>
+              <th>Mark as Paid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% unpaid_contributions.each do |contribution| %>
+              <tr>
+                <!--Again, here we link the expense IN its name. Just grabbing values from the DB to show in the view! -->
+                <td><%= link_to contribution.expense.name, edit_trip_expense_path(contribution.expense.trip, contribution.expense) %></td>
+                <td><%= contribution.expense.expense_type %></td>
+                <td><%= contribution.expense.date.strftime('%B %d, %Y') %></td>
+                <td><%= number_to_currency(contribution.amount) %></td>
+                <td>
+                  <!-- This is where we use our custom route to "pay" contributions!!! -->
+                  <%= form_with url: mark_contribution_paid_path(contribution), method: :patch, local: true do %>
+                    <%= check_box_tag 'paid', 'true', contribution.paid, class: 'mark-paid-checkbox', onchange: 'this.form.submit();' %>
+                    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="3"><strong>Total Remaining:</strong></td>
+              <td colspan="2"><%= number_to_currency(unpaid_contributions.sum(:amount)) %></td>
+            </tr>
+          </tfoot>
+        </table>
+      <% else %> <!-- Case for if a participant has no remaining payments!!!-->
+        <h5 class = "mt-3"><%= participant.user.name %>: All payments made! Thank you, <%= participant.user.name %>!</h5>
+      <% end %>
+      <hr class = "tableBreak">
+    <% end %>
+  </div>
+</div>

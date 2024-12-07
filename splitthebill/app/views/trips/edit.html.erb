@@ -1,12 +1,14 @@
-<div class = "trips">
-  <h4 class = "tripsHead">Editing Trip</h1>
+<div class = "container-fluid">
+  <div class = "card col-5 trips logIn mb-5">
+    <h4 class = "tripsHead p-3">Editing Trip</h4>
 
-  <%= render "form", trip: @trip %>
+    <%= render "form", trip: @trip %>
 
-  <div>
-    <%= link_to "Show this trip", @trip, class: "btn btn-primary tripButton" %>
-  </div>
-  <div>
-    <%= link_to "Back to trips", trips_path, class: "btn btn-primary tripButton" %>
+    <div>
+      <%= link_to "Show Trip", @trip, class: "btn btn-primary logInButton mt-3" %>
+    </div>
+    <div>
+      <%= link_to "Back To Trips", trips_path, class: "btn btn-primary logInButton m-3" %>
+    </div>
   </div>
 </div>

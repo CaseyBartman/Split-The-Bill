@@ -15,187 +15,365 @@
 
  */
  @import "bootstrap";
-
- .welcome{
-    padding: 10px;
-    background-color: #4AA7FF;
-    margin-bottom: 0;
-    color: #FFD700;
-    text-align: center;
- }
-
- .nv{
-    padding-right: 15px;
-    padding-left:  15px;
-    background-color: #F4E1B3;
-    margin-top: 0;
- }
-
-
- .home{
-   background-color: #dfdfdf;
- }
-
- 
-.navHead {
-  color: #3CB371;
-}
-
-.navHead:hover{
-  color: #007B82;
-}
-
-
- .homeTrips {
-   color: #005806;
- }
-
- .homeExpenses {
-   color: #aa1515;
- }
-
-
- .trips {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #3CB371;
+ .welcome {
   padding: 10px;
- }
+  background-color: #5b7bd2;
+  margin-bottom: 0;
+  color: #000000;
+  text-align: center;
+  font-family: 'Lobster', cursive;
+  font-size: 30px;
+}
 
- .trips > div {
-  margin-bottom: 20px;
- }
- 
- .tripsHead {
-  color: #007B82;
- }
+.nv {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-top: 0;
+  background-color: #5b7bd2;
+  font-family: 'Lobster', cursive; 
+}
 
- .trips a{
-  color: #3CB371;
- }
 
- .trips a:hover{
-  color: #FF9E9D;
- }
+.navHead {
+  color: white;
+  background-color: #5b7bd2;
+}
 
- .trips hr {
-  border: 1px solid #007B82;
-  width: 100%;
- }
+.navHead:hover {
+  color: black;
+}
 
- .tripButton {
-  margin: 10px;
-  background-color: #3CB371;
-  border-width: 0px;
-  color: #FFD700 !important;
- }
 
- .tripButton:hover{
-  background-color: #007B82;
-  color: #FF9E9D !important;
- }
 
-.tripForm {
+
+.container-fluid{
+  background-color: #e7e7e7;
+  margin-top: 0px;
+  padding: 10px;
+  padding-top: 50px;
+}
+
+.about {
+  margin-right: 30px;
+}
+
+
+.card-img-overlay {
+  position: absolute;
+  top: 10%;
+  text-align: center;
+  color: #e7e7e7;
   padding: 5px;
 }
 
-.tripForm input[type="text"] {
-  color: #007B82;
-  border: 1px solid #007B82;
+.homeCaption{
+  position: relative;
+  color: #e7e7e7;
+  text-align: center;
 }
 
-.tripForm input[type="date"] {
-  color: #007B82;
-  border: 1px solid #007B82;
+.homeCaption a{
+  color: #e7e7e7;
 }
 
-.trips select {
-  color: #007B82;
-  border: 1px solid #007B82;
+.homeCaption a:hover{
+  color: #001368;
 }
 
- .expenses table {
+.card {
+  border: 2px solid #001368;
+  background-color: #5b7bd2;
+  color: #efefef;
+}
+
+.card h5 {
+  text-align: center;
+}
+
+
+.aboutFounder {
+  height: auto;
+}
+
+.founderPic{
+  width: 40%;
+  height: auto;
+  padding: 15px;
+}
+
+.founder{
+  text-align: right;
+}
+
+.plane {
+  width: 10%;
+  height: auto;
+  margin-left: 100px;
+}
+.star {
+  padding-bottom: 10px;
+  color: #ffcd25;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.reviews {
+  color: #001368;
+  text-align: center;
+  margin-top: 25px;
+}
+
+.homeSign{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: #001368;
+  margin-bottom: 15px;
+  margin-top: 15px;
+
+}
+
+.homeSign a{
+  color: #001368;
+}
+
+.homeSign a:hover{
+  color: #5b7bd2;
+}
+
+.signButton {
+  color: #e7e7e7 !important;
+  background-color: #001368;
+  border-color: #5b7bd2;
+}
+
+.signButton:hover {
+  color: #e7e7e7 !important;
+  background-color: #5b7bd2;
+  border-color: #001368;
+}
+
+.trips {
+  color: #001368;
+  text-align: center;
+}
+
+.newTripButton{
+  color: #e7e7e7 !important;
+  background-color: #5b7bd2;
+  border-color: #001368;
+}
+
+.newTripButton:hover{
+  color: #e7e7e7 !important;
+  background-color: #001368;
+  border-color: #5b7bd2;
+}
+
+.tripsTable th, .tripsTable td {
+  border: 2px solid #e7e7e7;
+  color: #e7e7e7;
+  padding: 5px;
+}
+
+.tripsTable{
   border-collapse: collapse;
- }
-
- .expenses tr, th, td {
-  border: 2px solid #007B82;
-  padding: 10px;
-  color: #007B82;
- }
-
-.expenses .topRow th {
-  background-color: #FF9E9D;;
+  border: 2px solid #e7e7e7;
 }
 
- .expenses tr:nth-child(even) {
-  background-color: #FF9E9D;
+.tripsTable tr {
+  border-collapse: collapse;
+  border: 2px solid #e7e7e7;
 }
 
-.expenses tr:nth-child(odd) {
-  background-color: #F4E1B3;
-}
 
- .expenses {
+.tripsNotSign{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 10px;
- }
+}
 
- .expenses a {
-  color: #007B82;
- }
+.logIn {
+  display: flex;
+  justify-content: center; 
+  margin: 0 auto;
+}
 
- .expenses a:hover{
-  color: #3CB371;
- }
+.logIn h4, .logIn h5, .logIn h6, .logIn p {
+  text-align: center; 
+  color: #e7e7e7;
+}
 
- .expenseButton {
-  margin: 10px;
-  background-color: #FF9E9D;
-  border-width: 0px;
-  color: #007B82 !important;
-  border: 1px solid #007B82;
- }
+.logInButton {
+  background-color: #e7e7e7;
+  border-color: #001368;
+  color: #001368 !important;
+}
 
- .expenseButton:hover{
-  background-color: #3CB371;
-  color: #FFD700 !important;
- }
+.expenseButton{
+  max-width: 12.5%;
+  text-align: center;
+}
 
- .paid {
-  background-color: #005806;
-  color: white;
+.logInButton:hover {
+  background-color: #001368;
+  border-color: #001368;
+  color: #e7e7e7 !important;
+}
+
+.logIn a {
+  color: #e7e7e7;
+}
+
+.logIn a:hover {
+  color: #001368;
+}
+
+.logInForm {
+  color: #e7e7e7;
+}
+
+.logInField{
+  background-color: #e7e7e7;
+  border: 2px solid #001368;
+  color: #001368;
+}
+
+.logInField:focus{
+  background-color: #e7e7e7;
+  border: 2px solid #001368;
+  color: #001368;
+}
+
+.paid {
+  background-color: darkgreen;
+  font-weight: bold;
 }
 
 .not-paid {
-  background-color: #aa1515;
+  background-color: darkred;
+  font-weight: bold;
+}
+
+hr {
+  border-width: 2px;
+}
+
+.tableBreak {
+  border: 2px solid #e7e7e7;
+ }
+
+#contribution-warning {
+  color: red;
+  margin-top: 10px;
+  display: none;
+ }
+
+
+
+//footer stuff
+
+/* Ensure the body and html take the full height of the viewport */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+/* Flexbox for layout */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the body takes at least the full height of the viewport */
+  background-color: #e7e7e7;
+}
+
+.content {
+  flex: 1; /* Makes the content take up the remaining space */
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+footer{
+  background-color: #5b7bd2;
+  margin-top: auto; /* Pushes the footer to the bottom */
+}
+.footerContainer{
+  width: 100%;
+  padding: 10px 10px 10px ;
+}
+.socialIcons{
+  display: flex;
+  justify-content: center;
+}
+.socialIcons a{
+  text-decoration: none;
+  padding:  10px;
+  background-color: white;
+  margin: 10px;
+  border-radius: 50%;
+}
+.socialIcons a i{
+  font-size: 2em;
+  color: black;
+  opacity: 0,9;
+}
+/* Hover affect on social media icon */
+.socialIcons a:hover{
+  background-color: #5b7bd2;
+  transition: 0.5s;
+}
+.socialIcons a:hover i{
+  color: white;
+  transition: 0.5s;
+}
+.footerNav{
+  margin: 30px 0;
+}
+.footerNav ul{
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+.footerNav ul li a{
+  color:white;
+  margin: 20px;
+  text-decoration: none;
+  font-size: 1.3em;
+  opacity: 0.7;
+  transition: 0.5s;
+
+}
+.footerNav ul li a:hover{
+  opacity: 1;
+}
+.footerBottom{
+  background-color: #5b7bd2;
+  // padding: 20px;
+  text-align: center;
+}
+.footerBottom p{
   color: white;
 }
 
-.footer-container {
-  background-color: #4AA7FF;
-  color: #FFD700;
-  text-align: center;
-  padding: 10px;
- // position: absolute;
-  width: 100%;
-  bottom: 0;
-  margin-bottom: 0;
+@media (max-width: 700px){
+  .footerNav ul{
+      flex-direction: column;
+  } 
+  .footerNav ul li{
+      width:100%;
+      text-align: center;
+      margin: 10px;
+  }
+  .socialIcons a{
+      padding: 8px;
+      margin: 4px;
+  }
 }
-
-.footer a {
-  color: #F4E1B3;
-}
-
-.footer a:hover{
-  color: #007B82;
-}
-
-

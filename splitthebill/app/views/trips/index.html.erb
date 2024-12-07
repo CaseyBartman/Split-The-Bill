@@ -1,22 +1,32 @@
-<div class="trips">
-  <% if current_user %>
-    <% if @trips.any? %>
-      <% @trips.each do |trip| %>
-        <div>
-          <h3 class="tripsHead"><%= trip.name %></h3>
-          <p><%= trip.start_date %> - <%= trip.end_date %></p>
-          <p><strong class="tripsHead">Participants:</strong>
-            <%= trip.users.map(&:name).join(', ') %>
-          </p>
-          <%= link_to 'Show', trip_path(trip), class: "btn btn-primary tripButton" %>
-        </div>
-        <hr>
-      <% end %>
-    <% else %>
-      <p>No trips found. Make a new trip! </p> 
-    <% end %>
-    <%= link_to "New trip", new_trip_path, class: "btn btn-primary tripButton" %>
-  <% else %>
-    <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-primary tripButton' %>
-  <% end %>
+<div class = "container-fluid trips">
+<% if current_user %>
+  <p>Track Another Adventure: <%= link_to "New Trip", new_trip_path, class: "btn btn-primary newTripButton" %></p>
+<div class = "card col-6 mb-5 logIn">
+  <h4 class = "p-3"> My Trips!</h4>
+  <table class = "m-3 tripsTable">
+    <tr>
+      <th>Trip Name</th>
+      <th>Start State</th>
+      <th>End Date </th>
+      <th>Participants</th>
+    </tr>
+    <% @trips.each do |trip| %> 
+    <tr>
+      <th><%= link_to trip.name, trip_path(trip) %></th>
+      <td><%= trip.start_date %></td>
+      <td><%= trip.end_date %></td>
+      <td>
+        <% participants = trip.users.map(&:name).join(", ") %>
+        <%= participants %>
+      </td>
+    </tr>
+    <% end%>
+  </table>
+</div>
+<% else  %>
+<div class = "tripsNotSign">
+  <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-primary signButton' %>
+<p>You are currently not signed in. Please press "Sign In" above to view, create, or show trips and/or expenses. Thank You!</p>
+<% end %>
+</div>
 </div>

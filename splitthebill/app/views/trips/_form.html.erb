@@ -1,48 +1,53 @@
-<div class = "trips">
-  <div>
-    <%= form_with(model: trip) do |form| %>
-      <% if trip.errors.any? %>
-        <div style="color: red">
-          <h2><%= pluralize(trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
+<div>
+    <div class = "trips logIn">
+      <%= form_with(model: trip) do |form| %>
+        <% if trip.errors.any? %>
+          <div style="color: red">
+            <h2><%= pluralize(trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
 
-          <ul>
-            <% trip.errors.each do |error| %>
-              <li><%= error.full_message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-
-      <div class = "tripForm">
-        <%= form.label :name, style: "display: block" %>
-        <%= form.text_field :name %>
-      </div>
-
-      <div class = "tripForm">
-        <%= form.label :start_date, style: "display: block" %>
-        <%= form.date_field :start_date %>
-      </div>
-
-      <div class = "tripForm">
-        <%= form.label :end_date, style: "display: block" %>
-        <%= form.date_field :end_date %>
-      </div>
-
-      <h4 class="tripsHead p-3">Participants</h4>
-      <div class="row p-3">
-        <% @users.each do |user| %>
-          <div class="col-md-3">
-            <div class="form-check">
-              <%= check_box_tag "trip[user_ids][]", user.id, false, class: "form-check-input", id: "trip_user_ids_#{user.id}" %>
-              <%= label_tag "trip_user_ids_#{user.id}", user.name, class: "form-check-label" %>
-            </div>
+            <ul>
+              <% trip.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
           </div>
         <% end %>
-      </div>
 
-      <div>
-        <%= form.submit "Update Trip", class: "btn btn-primary tripButton"%>
-      </div>
-    <% end %>
-  </div>
+        <div class = "logInForm">
+          <%= form.label :name, style: "display: block" %>
+          <%= form.text_field :name, class: "logInField" %>
+        </div>
+
+        <div class = "logInForm">
+          <%= form.label :start_date, style: "display: block" %>
+          <%= form.date_field :start_date, class: "logInField" %>
+        </div>
+
+        <div class = "logInForm">
+          <%= form.label :end_date, style: "display: block" %>
+          <%= form.date_field :end_date, class: "logInField" %>
+        </div>
+
+        <h5 class = "mt-3">Participants</h5>
+        <div>
+          <% @users.each do |user| %>
+            <div>
+              <div class = "logInForm">
+                <%= check_box_tag "trip[user_ids][]", user.id, false, class: "form-check-input", id: "trip_user_ids_#{user.id}" %>
+                <%= label_tag "trip_user_ids_#{user.id}", user.name, class: "form-check-label" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+        <div>
+          <% if @trip.new_record?%>
+          <h6 class = "logIn trips mt-3">Have Fun On Your Trip!!!</h6>
+            <%= form.submit "Save Trip", class: "btn btn-primary logInButton mt-3"%>
+          <%else%>
+            <%= form.submit "Update Trip", class: "btn btn-primary logInButton mt-3"%>
+          <%end%>
+        </div>
+      <% end %>
+    </div>
 </div>

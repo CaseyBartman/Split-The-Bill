@@ -1,9 +1,13 @@
-<h4 class = "trips tripsHead">New expense</h4>
+<div class = "container-fluid">
+  <div class = "card col-5 mb-5 trips logIn p-3">
+    <h4>New Expense</h4>
 
-<%= render "form", expense: @expense %>
+    <%= render "form", expense: @expense %>
 
-<br>
+    <br>
 
-<div>
-  <%= link_to "Back to expenses", trip_expenses_path(@expense.trip) %>
+    <div>
+      <%= link_to "Back to expenses", trip_expenses_path(@expense.trip), class: 'btn btn-primary logInButton mb-2'%>
+    </div>
+  </div>
 </div>
