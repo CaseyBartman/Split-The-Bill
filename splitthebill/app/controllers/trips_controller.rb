@@ -37,7 +37,7 @@ class TripsController < ApplicationController
       user_ids.each do |user_id|
         @trip.participants.create(user_id: user_id)
       end
-      redirect_to @trip, notice: 'Trip created successfully!'
+      redirect_to @trip
     else
       @users = User.all
       render :new

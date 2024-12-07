@@ -175,6 +175,7 @@
 .tripsTable th, .tripsTable td {
   border: 2px solid #e7e7e7;
   color: #e7e7e7;
+  padding: 5px;
 }
 
 .tripsTable{
@@ -214,6 +215,11 @@
   color: #001368 !important;
 }
 
+.expenseButton{
+  max-width: 12.5%;
+  text-align: center;
+}
+
 .logInButton:hover {
   background-color: #001368;
   border-color: #001368;
@@ -234,14 +240,33 @@
 
 .logInField{
   background-color: #e7e7e7;
-  border-color: #001368;
+  border: 2px solid #001368;
+  color: #001368;
 }
 
 .logInField:focus{
   background-color: #e7e7e7;
-  border-color: #001368;
+  border: 2px solid #001368;
   color: #001368;
 }
+
+.paid {
+  background-color: darkgreen;
+  font-weight: bold;
+}
+
+.not-paid {
+  background-color: darkred;
+  font-weight: bold;
+}
+
+hr {
+  border-width: 2px;
+}
+
+.tableBreak {
+  border: 2px solid #e7e7e7;
+ }
 
 #contribution-warning {
   color: red;

@@ -1,10 +1,14 @@
-<h4 class = "trips tripsHead">Editing Expense</h4>
+<div class = "container-fluid">
+  <div class = "card col-5 mb-5 trips logIn p-3">
+    <h4>Editing Expense</h4>
 
-<%= render "form", expense: @expense %>
+    <%= render "form", expense: @expense %>
 
-<br>
+    <br>
 
-<div class = "trips">
-  <%= link_to "Back to expenses", trip_expenses_path(@expense.trip), class: 'btn btn-primary tripButton'%>
-  <%= button_to "Destroy this expense", trip_expense_path(@expense.trip, @expense), method: :delete, class: 'btn btn-primary tripButton' %>
+    <div>
+      <%= link_to "Back to expenses", trip_expenses_path(@expense.trip), class: 'btn btn-primary logInButton mb-2'%>
+      <%= button_to "Destroy this expense", trip_expense_path(@expense.trip, @expense), method: :delete, class: 'btn btn-primary logInButton mt-2 mb-3' %>
+    </div>
+  </div>
 </div>
