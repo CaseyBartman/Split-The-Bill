@@ -27,7 +27,7 @@
         <%= form.label :end_date, style: "display: block" %>
         <%= form.date_field :end_date %>
       </div>
-
+      <%if @trip.new_record?%> 
       <h4 class="tripsHead p-3">Participants</h4>
       <div class="row p-3">
         <% @users.each do |user| %>
@@ -39,6 +39,7 @@
           </div>
         <% end %>
       </div>
+      <%end%>
 
       <div>
         <%= form.submit "Update Trip", class: "btn btn-primary tripButton"%>
