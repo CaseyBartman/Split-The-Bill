@@ -1,10 +1,10 @@
-<div class = "container-fluid">
+<div class="container-fluid">
   <div class="card col-6 logIn mb-5">
     <div class="card-header">
       <h4>Welcome! Please Sign Up!</h4>
     </div>
     <div class="card-body">
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { "data-turbo" => "false", id: "new_user" }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
 
         <div class="form-group logInForm">
@@ -30,7 +30,7 @@
           <%= f.password_field :password_confirmation, class: "form-control logInField", autocomplete: "new-password" %>
         </div>
 
-         <!-- Terms of Service Checkbox -->
+        <!-- Terms of Service Checkbox -->
         <div class="form-check">
           <input type="checkbox" id="terms-of-service" class="form-check-input">
           <label class="form-check-label" for="terms-of-service">
@@ -43,23 +43,24 @@
         </div>
       <% end %>
     </div>
-<p>Returning User? <a href = <%=new_session_path(resource_name)%>> Log In</a>!</p>
-</div>
+    <p>Returning User? <a href=<%= new_session_path(resource_name) %>> Log In</a>!</p>
+  </div>
 
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("sign-up-form");
-    const termsCheckbox = document.getElementById("terms-of-service");
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.querySelector("form#new_user");
+      const termsCheckbox = document.getElementById("terms-of-service");
 
-    form.addEventListener("submit", function (event) {
-      if (!termsCheckbox.checked) {
-        event.preventDefault(); // Prevent form submission
-        alert("You must agree to the terms of service before signing up.");
+      if (form && termsCheckbox) {
+        form.addEventListener("submit", function (event) {
+          if (!termsCheckbox.checked) {
+            event.preventDefault(); // Prevent form submission
+            alert("You must agree to the Terms of Service before signing up.");
+          }
+        });
       }
     });
-  });
-</script>
-
-
+  </script>
+</div>
