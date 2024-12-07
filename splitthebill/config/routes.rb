@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # resources :expenses
   resources :trips do 
-    resources :expenses
+    resources :expenses, only: [:index, :new, :create, :edit, :update, :destroy]
   end
   resources :home
   #resources :users, only: [:index, :show, :new, :create] # Note, a few are left out, because we use Devise

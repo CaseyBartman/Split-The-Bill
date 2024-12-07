@@ -1,18 +1,10 @@
 class ExpensesController < ApplicationController
   before_action :set_expense, only:[:show, :destroy]
-  before_action :set_trip, only: [:index, :new] #Now, trip is set for these actions!
-  #skip_before_action :verify_authenticity_token
+  before_action :set_trip, only: [:index, :new]
   
   # GET /expenses or /expenses.json
   def index
     @expenses = @trip.expenses
-  end
-
-  # GET /expenses/1 or /expenses/1.json
-  def show
-    @expense = Expense.find(params[:id])
-    @trip = @expense.trip #Since our trip needs to be associated with the expense!!!
-    @participants = @trip.participants.includes(:user)
   end
 
   # GET /expenses/new
@@ -25,40 +17,22 @@ class ExpensesController < ApplicationController
     @participants.each do |participant|
       @expense.contributions.build(user: participant.user)
     end    
-
-    # Rails.logger.debug "Expense Params: #{expense_params.inspect}"
-    # Rails.logger.debug "Contributions Params: #{expense_params[:contributions_attributes].inspect}" if expense_params[:contributions_attributes]
-  
   end
   
 
   # GET /expenses/1/edit
 def edit
-  #@expense = @trip.expenses.find(params[:id])
   @expense = Expense.find(params[:id])
   @trip = @expense.trip #Since our trip needs to be associated with the expense!!!
   @participants = @trip.participants.includes(:user)  #Get the participants with the associated users, this should work!
-
-
-  # # Pre-load contributions for the form
-  # @participants.each do |participant|
-  #   @expense.contributions.build(user: participant.user) unless @expense.contributions.exists?(user_id: participant.user.id)
-  # end
-
-  puts "Trip ID in Edit: #{@expense.trip_id}"
 end
 
   #POST /expenses or /expenses.json
 def create
   @trip = Trip.find(params[:trip_id])  # Find the trip based on the trip_id passed in params
-  #^^^Switch this later!!!
   
   @expense = @trip.expenses.new(expense_params)  #Create a new expense related to the trip!
   @participants = @trip.participants.includes(:user)
-  puts "Expense ID in create: #{@expense.id}"
-
-  #Rails.logger.debug "Expense Params: #{expense_params.inspect}"
-  #Rails.logger.debug "Contributions Params: #{expense_params[:contributions_attributes].inspect}" if expense_params[:contributions_attributes]
 
   respond_to do |format|
     if @expense.save
@@ -74,15 +48,8 @@ end
   # PATCH/PUT /expenses/1 or /expenses/1.json
   def update
     @expense = Expense.find(params[:id])
-    @trip = @expense.trip #Since our trip needs to be associated with the expense!!!
-    # @participants = @trip.participants.includes(:user)  #Get the participants with the associated users, this should work!
+    @trip = @expense.trip #Since our trip needs to be associated with the expense, we load it this way
 
-    # Pre-load contributions for the form
-    # @participants.each do |participant|
-    #   @expense.contributions.build(user: participant.user) unless @expense.contributions.exists?(user_id: participant.user.id)
-    # end
-
-    # puts "Trip ID in update: #{@expense.trip_id}"
     respond_to do |format|
       if @expense.update(expense_params)
         format.html { redirect_to trip_expenses_path(@trip, @expense), notice: "Expense was successfully updated." }
@@ -96,9 +63,6 @@ end
 
   # DELETE /expenses/1 or /expenses/1.json
   def destroy
-    #@expense = Expense.find(params[:id])
-    # @trip = @expense.trip #Since our trip needs to be associated with the expense!!!
-    # @participants = @trip.participants.includes(:user) 
     @expense.destroy
 
     respond_to do |format|
@@ -108,7 +72,7 @@ end
   end
 
   private
-    #Use callbacks to share common setup or constraints between actions.
+  #Setting expense
     def set_expense
       @expense = Expense.find(params[:id])
     end
