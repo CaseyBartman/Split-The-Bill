@@ -56,6 +56,7 @@
         <%= contribution_fields.label :amount, "#{contribution_fields.object.user.name}"%>
         <%= contribution_fields.hidden_field :user_id, class: 'participant-id'  %>
         <%= contribution_fields.text_field :amount, class: "contribution-amount logInField m-1" %>
+        Has paid their share?
         <%= contribution_fields.check_box :paid, class: "pay-check-box"%>
       </div>
     <% end %>
