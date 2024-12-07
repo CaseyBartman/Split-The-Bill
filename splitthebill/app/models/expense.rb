@@ -13,9 +13,6 @@ class Expense < ApplicationRecord
   # Custom validation to ensure date falls within trip range!
   validate :date_within_trip_range
 
-  # # Custom validation to check if the sum of contributions equals the expense amount
-  # validate :contributions_sum_to_amount
-
   private
 
   #Also has a custom error message to give the user more info!
@@ -26,16 +23,4 @@ class Expense < ApplicationRecord
       end
     end
   end
-
-
-  # I HOPE I CAN GET THIS TO WORK SOON!
-  # def contributions_sum_to_amount
-  #   # Calculate the sum of all contribution amounts
-  #   total_contributions = contributions.sum(:amount)
-
-  #   # Check if the total contribution amount matches the expense's amount
-  #   if total_contributions != amount
-  #     errors.add(:base, "Total of contributions (#{total_contributions}) must equal the expense amount(#{amount}).")
-  #   end
-  # end
 end

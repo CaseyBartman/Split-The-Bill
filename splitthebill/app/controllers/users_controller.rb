@@ -4,8 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @user = User.find(params[:id])
-    @user = current_user  # Use current_user instead of User.find(params[:id])
+    @user = current_user  #Use current_user instead of User.find(params[:id])!
   end
 
   def new

@@ -19,9 +19,8 @@ class TripsController < ApplicationController
   # GET /trips/new
   def new
     @trip = Trip.new
-    @users = User.all #I want to display each user in the form!
+    @users = User.all #We want to display each user in the form!
 
-    # Rails.logger.debug "Users: #{@users.inspect}"  # Debugging line
   end
 
   # GET /trips/1/edit
@@ -46,16 +45,6 @@ class TripsController < ApplicationController
       @users = User.all
       render :new
     end
-
-    # respond_to do |format|
-    #   if @trip.save
-    #     format.html { redirect_to @trip, notice: "Trip was successfully created." }
-    #     format.json { render :show, status: :created, location: @trip }
-    #   else
-    #     format.html { render :new, status: :unprocessable_entity }
-    #     format.json { render json: @trip.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   # PATCH/PUT /trips/1 or /trips/1.json
