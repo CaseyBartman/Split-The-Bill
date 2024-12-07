@@ -84,7 +84,7 @@
           <!-- Paid Checkboxes! -->
           <!-- Again, see how we need to make our own name with that index to prevent duplicated participants. -->
           <%= contribution_fields.label :paid, "Has paid their share?" %>
-          <%= contribution_fields.check_box :paid, name: "expense[contributions_attributes][#{index}][paid]", class: "contribution-amount logInField m-1" %>
+          <%= contribution_fields.check_box :paid, name: "expense[contributions_attributes][#{index}][paid]", class: "logInField m-1" %>
         </div>
 
         <% index += 1 %>
