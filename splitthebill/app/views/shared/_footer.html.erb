@@ -14,14 +14,18 @@
             <a href="https://www.facebook.com/osu/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
             <a href="https://www.instagram.com/osuengineering/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://x.com/OhioState" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-            <a href="https://github.com/orgs/cse3901-2024au-1020/teams/paul-s-pals" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://github.com" target="_blank"><i class="fa-brands fa-github"></i></a>
             <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><i class="fa-brands fa-youtube"></i></a>
         </div>
         <div class="footerNav">
             <ul><li><a href="<%= root_path %>">Home</a></li>
                 <li><a href="<%= trips_path %>">Trips</a></li>
+                <% if user_signed_in? %>
+                <li><a href="<%= edit_user_registration_path %>">Edit Profile</a></li>
+                <% else %>
                 <li><a href="<%= new_user_session_path %>">Sign In</a></li>
                 <li><a href="<%= new_user_registration_path %>">Sign Up</a></li>
+                <% end %>
                 <li><a href="<%= terms_of_service_path %>" target="_blank">Terms of Service</a></li>
             </ul>
         </div>
