@@ -7,10 +7,10 @@
       <!-- Left-aligned items -->
       <ul class="navbar-nav me-auto">
         <li class="nav-item me-2">
-          <a class="btn btn-warning navHead" href="/home">Home</a>
+          <a class="btn btn-warning navHead logInButton" href="/home">Home</a>
         </li>
         <li class="nav-item me-2">
-          <%= link_to 'Trips', trips_path, class: 'btn btn-warning navHead' %>
+          <%= link_to 'Trips', trips_path, class: 'btn btn-warning navHead logInButton' %>
         </li>
       </ul>
 
@@ -21,17 +21,17 @@
       <ul class="navbar-nav ms-auto">
         <% if user_signed_in? %>
         <li class="nav-item me-2">
-          <%= link_to 'Edit Profile', edit_user_registration_path, class: 'btn  navHead' %>
+          <%= link_to 'Edit Profile', edit_user_registration_path, class: 'btn btn-primary navHead logInButton' %>
         </li>
         <li class="nav-item me-2">
-          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'btn btn-warning navHead', id: 'sign-out-link' %>
+          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'btn btn-warning navHead logInButton', id: 'sign-out-link' %>
         </li>
         <% else %>
         <li class="nav-item me-2">
-          <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-warning navHead' %>
+          <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-warning navHead logInButton' %>
         </li>
         <li class="nav-item me-2">
-          <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-warning navHead' %>
+          <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-warning navHead logInButton' %>
         </li>
         <% end %>
       </ul>

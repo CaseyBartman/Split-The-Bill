@@ -6,14 +6,10 @@
     <div class = "trips">
       <p class = "tripsHead">
         <h5>Participants</h5>
-      <ul>
         <% @trip.participants.each do |participant| %>
-          <li>
             <p><%= participant.user.name %>:
             <%= participant.user.email %></p>
-          </li>
         <% end %>
-      </ul>
     </div>
     <div class = "trips">
       <%= link_to "Edit this trip", edit_trip_path(@trip), class: "btn btn-primary logInButton m-2" %>
