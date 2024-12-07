@@ -12,7 +12,7 @@ trip1 = Trip.create!(
 )
 
 trip2 = Trip.create!(
-  name: "Bahamas 2: Electric Boogaloo",
+  name: "Greece",
   start_date: Date.new(2024, 12, 1),
   end_date: Date.new(2025, 1, 6)
 )
@@ -56,33 +56,33 @@ expense3 = Expense.create!(
 
 expense4 = Expense.create!(
   trip: trip1,
-  name: "Suspicious expense...",
-  expense_type: "Food",
-  amount: 10.00,
+  name: "Hotel",
+  expense_type: "Lodging",
+  amount: 160.00,
   payer: user4,
   date: Date.new(2024, 12, 17)
 )
 
 # Contributions for trip1 expenses
 Contribution.create!(expense: expense1, user: user1, amount: 10.00, paid: true)
-Contribution.create!(expense: expense1, user: user2, amount: 10.00, paid: false)
+Contribution.create!(expense: expense1, user: user2, amount: 10.00, paid: true)
 Contribution.create!(expense: expense1, user: user3, amount: 10.00, paid: true)
 Contribution.create!(expense: expense1, user: user4, amount: 10.00, paid: true)
 
 Contribution.create!(expense: expense2, user: user1, amount: 100.00, paid: true)
 Contribution.create!(expense: expense2, user: user2, amount: 200.00, paid: false)
-Contribution.create!(expense: expense2, user: user3, amount: 50.00, paid: false)
+Contribution.create!(expense: expense2, user: user3, amount: 50.00, paid: true)
 Contribution.create!(expense: expense2, user: user4, amount: 50.00, paid: false)
 
 Contribution.create!(expense: expense3, user: user1, amount: 20.00, paid: true)
 Contribution.create!(expense: expense3, user: user2, amount: 20.00, paid: false)
-Contribution.create!(expense: expense3, user: user3, amount: 30.00, paid: false)
+Contribution.create!(expense: expense3, user: user3, amount: 30.00, paid: true)
 Contribution.create!(expense: expense3, user: user4, amount: 10.00, paid: true)
 
-Contribution.create!(expense: expense4, user: user1, amount: 5.00, paid: true)
-Contribution.create!(expense: expense4, user: user2, amount: 10.00, paid: false)
-Contribution.create!(expense: expense4, user: user3, amount: 20000.00, paid: false)
-Contribution.create!(expense: expense4, user: user4, amount: 15.00, paid: true)
+Contribution.create!(expense: expense4, user: user1, amount: 40.00, paid: true)
+Contribution.create!(expense: expense4, user: user2, amount: 40.00, paid: false)
+Contribution.create!(expense: expense4, user: user3, amount: 40.00, paid: false)
+Contribution.create!(expense: expense4, user: user4, amount: 40.00, paid: true)
 
 
 
@@ -107,10 +107,10 @@ expense6 = Expense.create!(
 
 
 # Contributions for trip2 expenses
-Contribution.create!(expense: expense5, user: user1, amount: 10.00, paid: false)
+Contribution.create!(expense: expense5, user: user1, amount: 10.00, paid: true)
 Contribution.create!(expense: expense5, user: user3, amount: 10.00, paid: false)
 Contribution.create!(expense: expense5, user: user4, amount: 10.00, paid: true)
 
 Contribution.create!(expense: expense6, user: user1, amount: 100.00, paid: true)
-Contribution.create!(expense: expense6, user: user3, amount: 100.00, paid: false)
-Contribution.create!(expense: expense6, user: user4, amount: 100.00, paid: true)
+Contribution.create!(expense: expense6, user: user3, amount: 100.00, paid: true)
+Contribution.create!(expense: expense6, user: user4, amount: 100.00, paid: false)
