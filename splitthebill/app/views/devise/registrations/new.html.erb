@@ -46,8 +46,6 @@
     <p>Returning User? <a href=<%= new_session_path(resource_name) %>> Log In</a>!</p>
   </div>
 
-  <%= render "devise/shared/links" %>
-
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const form = document.querySelector("form#new_user");
