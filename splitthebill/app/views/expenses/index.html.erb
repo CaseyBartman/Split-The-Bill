@@ -69,7 +69,6 @@
                                        .where(paid: false)
                                        .where(expenses: { trip_id: @trip.id }) %> 
                                        <!-- ^^^Note, here we filter for only the MATCHING trip based on the trip id!!!! -->
-                                       <!-- MAYBE MOVE THIS LOGIC TO THE CONTROLLER!!!! -->
 
   <% if unpaid_contributions.any? %>
     <h4><%= participant.user.name %>: Remaining Payments</h4>
