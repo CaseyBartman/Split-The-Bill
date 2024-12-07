@@ -30,6 +30,14 @@
           <%= f.password_field :password_confirmation, class: "form-control logInField", autocomplete: "new-password" %>
         </div>
 
+         <!-- Terms of Service Checkbox -->
+        <div class="form-check">
+          <input type="checkbox" id="terms-of-service" class="form-check-input">
+          <label class="form-check-label" for="terms-of-service">
+            I agree to the <%= link_to "terms of service", terms_of_service_path, target: "_blank" %>
+          </label>
+        </div>
+
         <div class="form-group text-center logInForm p-3">
           <%= f.submit "Sign Up", class: "btn btn-primary logInButton"  %>
         </div>
@@ -37,3 +45,21 @@
     </div>
 <p>Returning User? <a href = <%=new_session_path(resource_name)%>> Log In</a>!</p>
 </div>
+
+<%= render "devise/shared/links" %>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("sign-up-form");
+    const termsCheckbox = document.getElementById("terms-of-service");
+
+    form.addEventListener("submit", function (event) {
+      if (!termsCheckbox.checked) {
+        event.preventDefault(); // Prevent form submission
+        alert("You must agree to the terms of service before signing up.");
+      }
+    });
+  });
+</script>
+
+
