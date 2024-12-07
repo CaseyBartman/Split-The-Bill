@@ -15,15 +15,6 @@
 
  */
  @import "bootstrap";
- .welcome {
-  padding: 10px;
-  background-color: #4AA7FF;
-  margin-bottom: 0;
-  color: #FFD700;
-  text-align: center;
-  font-family: 'Lobster', cursive;
-  font-size: 30px;
-}
 
 .nv {
   padding-right: 15px;
@@ -39,68 +30,6 @@
 
 .navHead:hover {
   color: #4AA7FF;
-}
-
- .expenses table {
-  border-collapse: collapse;
- }
-
- .expenses tr, th, td {
-  border: 2px solid #007B82;
-  padding: 10px;
-  color: #007B82;
- }
-
-.expenses .topRow th {
-  background-color: #FF9E9D;;
-}
-
- .expenses tr:nth-child(even) {
-  background-color: #FF9E9D;
-}
-
-.expenses tr:nth-child(odd) {
-  background-color: #F4E1B3;
-}
-
- .expenses {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 10px;
- }
-
- .expenses a {
-  color: #007B82;
- }
-
- .expenses a:hover{
-  color: #3CB371;
- }
-
- .expenseButton {
-  margin: 10px;
-  background-color: #FF9E9D;
-  border-width: 0px;
-  color: #007B82 !important;
-  border: 1px solid #007B82;
- }
-
- .expenseButton:hover{
-  background-color: #3CB371;
-  color: #FFD700 !important;
- }
-
- .paid {
-  background-color: #005806;
-  color: white;
-}
-
-.not-paid {
-  background-color: #aa1515;
-  color: white;
 }
 
 .footer-container {
@@ -253,7 +182,7 @@
   margin: 0 auto;
 }
 
-.logIn h4, .logIn p {
+.logIn h4, .logIn h5, .logIn h6, .logIn p {
   text-align: center; 
   color: #e7e7e7;
 }
@@ -261,13 +190,13 @@
 .logInButton {
   background-color: #e7e7e7;
   border-color: #001368;
-  color: #001368;
+  color: #001368 !important;
 }
 
 .logInButton:hover {
   background-color: #001368;
   border-color: #001368;
-  color: #e7e7e7;
+  color: #e7e7e7 !important;
 }
 
 .logIn a {
@@ -291,4 +220,36 @@
   background-color: #e7e7e7;
   border-color: #001368;
   color: #001368;
+}
+
+.newTripButton{
+  color: #e7e7e7 !important;
+  background-color: #5b7bd2;
+  border-color: #001368;
+}
+
+
+.newTripButton:hover{
+  color: #e7e7e7 !important;
+  background-color: #001368;
+  border-color: #5b7bd2;
+}
+
+.trips {
+  text-align: center;
+}
+
+.tripsTable th, .tripsTable td {
+  border: 2px solid #e7e7e7;
+  color: #e7e7e7;
+}
+
+.tripsTable{
+  border-collapse: collapse;
+  border: 2px solid #e7e7e7;
+}
+
+.tripsTable tr {
+  border-collapse: collapse;
+  border: 2px solid #e7e7e7;
 }

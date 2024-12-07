@@ -1,13 +1,7 @@
-<div id="<%= dom_id trip %>" class = "trips">
-  <h4 class = "tripsHead"><%= trip.name %></h4>
-
-  <p>
-    <strong class = "tripsHead">Start date:</strong>
-    <%= trip.start_date %>
-  </p>
-
-  <p>
-    <strong class = "tripsHead"> End date:</strong>
-    <%= trip.end_date %>
-  </p>
+<div class = "trips logIn">
+  <div id="<%= dom_id trip %>">
+    <h4 class = "tripsHead"><%= trip.name %></h4>
+    <h5 class = "mt-3"> <%=trip.start_date%> - <%=trip.end_date%> </h5>
+  </div>
 </div>
+
