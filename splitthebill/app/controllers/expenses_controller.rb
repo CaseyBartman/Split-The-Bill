@@ -44,6 +44,7 @@ end
   # PATCH/PUT /expenses/1 or /expenses/1.json
   def update
     @trip = @expense.trip #Since our trip needs to be associated with the expense, we load it this way
+    @participants = @trip.participants.includes(:user)
 
     respond_to do |format|
       if @expense.update(expense_params)
