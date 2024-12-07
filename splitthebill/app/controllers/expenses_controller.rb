@@ -1,6 +1,6 @@
 class ExpensesController < ApplicationController
-  before_action :set_expense, only:[:show, :destroy]
-  before_action :set_trip, only: [:index, :new]
+  before_action :set_expense, only:[:show, :destroy, :edit, :update]
+  before_action :set_trip, only: [:index, :new, :create]
   
   # GET /expenses or /expenses.json
   def index
@@ -9,7 +9,6 @@ class ExpensesController < ApplicationController
 
   # GET /expenses/new
   def new
-    @trip = Trip.find(params[:trip_id])  #Find the trip based on the trip_id passed in params
     @expense = @trip.expenses.new  #Create a new expense related to the trip
     @participants = @trip.participants.includes(:user)  #Get the participants with the associated users, this should work!
 
@@ -22,15 +21,12 @@ class ExpensesController < ApplicationController
 
   # GET /expenses/1/edit
 def edit
-  @expense = Expense.find(params[:id])
   @trip = @expense.trip #Since our trip needs to be associated with the expense!!!
   @participants = @trip.participants.includes(:user)  #Get the participants with the associated users, this should work!
 end
 
   #POST /expenses or /expenses.json
 def create
-  @trip = Trip.find(params[:trip_id])  # Find the trip based on the trip_id passed in params
-  
   @expense = @trip.expenses.new(expense_params)  #Create a new expense related to the trip!
   @participants = @trip.participants.includes(:user)
 
@@ -47,7 +43,6 @@ end
 
   # PATCH/PUT /expenses/1 or /expenses/1.json
   def update
-    @expense = Expense.find(params[:id])
     @trip = @expense.trip #Since our trip needs to be associated with the expense, we load it this way
 
     respond_to do |format|
