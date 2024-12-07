@@ -55,7 +55,7 @@
       <div>
         <%= contribution_fields.label :amount, "#{contribution_fields.object.user.name}"%>
         <%= contribution_fields.hidden_field :user_id %>
-        <%= contribution_fields.text_field :amount %>
+        <%= contribution_fields.text_field :amount, class: "contribution-amount" %>
         <%= contribution_fields.check_box :paid %>
       </div>
     <% end %>
@@ -91,12 +91,12 @@
     <% end %>
   </div>
 
-   <!-- Cool trick! Can change the text of the button depending on if we are editing or making a new expense!-->
+
+    <% end %>
+       <!-- Cool trick! Can change the text of the button depending on if we are editing or making a new expense!-->
     <div class = "tripForm">
       <%= form.submit expense.new_record? ? "Create Expense" : "Save Changes", class: "btn btn-primary tripButton" %>
     </div>
-
-    <% end %>
   <% end %>
 </div>
 
