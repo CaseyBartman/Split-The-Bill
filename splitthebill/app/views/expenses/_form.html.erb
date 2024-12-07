@@ -138,6 +138,14 @@
       }
     }
 
+    //Function to prevent negative inputs!
+    function preventNegativeValues(event) {
+      const value = parseFloat(event.target.value);
+      if (value < 0) {
+        event.target.value = 0; // Reset the value if negative
+      }
+    }
+
     // Prevent form submission if contributions do not match
     form.addEventListener("submit", function (event) {
       if (!validateContributions()) {
@@ -145,10 +153,18 @@
       }
     });
 
-    //Now, we add the event listeners to update the contribution values in real time as they are input!
-    expenseAmountField.addEventListener("input", validateContributions);
-    contributionAmountFields.forEach(function (field) {
-      field.addEventListener("input", validateContributions);
+    //Now, we add the event listeners to update the expense ammount values in real time as they are input!
+    expenseAmountField.addEventListener("input", function (event) {
+      preventNegativeValues(event); // Check for negative values
+      validateContributions(); // Validate contributions
     });
-  });
+
+    //Adding event listeners to prevent each contribution amount on live
+    contributionAmountFields.forEach(function (field) {
+        field.addEventListener("input", function (event) {
+          preventNegativeValues(event); // Check for negative values
+          validateContributions(); // Validate contributions. Checking here so the user sees the validation update live
+        });
+      });
+    });
 </script>
