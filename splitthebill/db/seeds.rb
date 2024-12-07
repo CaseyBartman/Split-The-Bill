@@ -63,6 +63,15 @@ expense4 = Expense.create!(
   date: Date.new(2024, 12, 17)
 )
 
+expense5 = Expense.create!(
+  trip: trip1,
+  name: "Snacks",
+  expense_type: "Food",
+  amount: 41.29,
+  payer: user4,
+  date: Date.new(2024, 12, 17)
+)
+
 # Contributions for trip1 expenses
 Contribution.create!(expense: expense1, user: user1, amount: 10.00, paid: true)
 Contribution.create!(expense: expense1, user: user2, amount: 10.00, paid: true)
@@ -83,6 +92,11 @@ Contribution.create!(expense: expense4, user: user1, amount: 40.00, paid: true)
 Contribution.create!(expense: expense4, user: user2, amount: 40.00, paid: false)
 Contribution.create!(expense: expense4, user: user3, amount: 40.00, paid: false)
 Contribution.create!(expense: expense4, user: user4, amount: 40.00, paid: true)
+
+Contribution.create!(expense: expense5, user: user1, amount: 12.17, paid: false)
+Contribution.create!(expense: expense5, user: user2, amount: 9.58, paid: true)
+Contribution.create!(expense: expense5, user: user3, amount: 13.65, paid: false)
+Contribution.create!(expense: expense5, user: user4, amount: 5.89, paid: true)
 
 
 
