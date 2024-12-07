@@ -15,40 +15,94 @@
 
  */
  @import "bootstrap";
+ .welcome {
+  padding: 10px;
+  background-color: #5b7bd2;
+  margin-bottom: 0;
+  color: #000000;
+  text-align: center;
+  font-family: 'Lobster', cursive;
+  font-size: 30px;
+}
 
 .nv {
   padding-right: 15px;
   padding-left: 15px;
   margin-top: 0;
-  background-color: #4AA7FF;
+  background-color: #5b7bd2;
   font-family: 'Lobster', cursive; 
 }
 
+
 .navHead {
-  color: black;
+  color: white;
+  background-color: #5b7bd2;
 }
 
 .navHead:hover {
-  color: #4AA7FF;
+  color: black;
 }
 
-.footer-container {
-  background-color: #4AA7FF;
-  color: #FFD700;
+ .expenses table {
+  border-collapse: collapse;
+ }
+
+ .expenses tr, th, td {
+  border: 2px solid #007B82;
+  padding: 10px;
+  color: #007B82;
+ }
+
+.expenses .topRow th {
+  background-color: #FF9E9D;;
+}
+
+ .expenses tr:nth-child(even) {
+  background-color: #FF9E9D;
+}
+
+.expenses tr:nth-child(odd) {
+  background-color: #F4E1B3;
+}
+
+ .expenses {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   padding: 10px;
- // position: absolute;
-  width: 100%;
-  bottom: 0;
-  margin-bottom: 0;
-}
+ }
 
-.footer a {
-  color: #F4E1B3;
-}
-
-.footer a:hover{
+ .expenses a {
   color: #007B82;
+ }
+
+ .expenses a:hover{
+  color: #3CB371;
+ }
+
+ .expenseButton {
+  margin: 10px;
+  background-color: #FF9E9D;
+  border-width: 0px;
+  color: #007B82 !important;
+  border: 1px solid #007B82;
+ }
+
+ .expenseButton:hover{
+  background-color: #3CB371;
+  color: #FFD700 !important;
+ }
+
+ .paid {
+  background-color: #005806;
+  color: white;
+}
+
+.not-paid {
+  background-color: #aa1515;
+  color: white;
 }
 
 
@@ -222,34 +276,105 @@
   color: #001368;
 }
 
-.newTripButton{
-  color: #e7e7e7 !important;
+
+//footer stuff
+
+/* Ensure the body and html take the full height of the viewport */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+/* Flexbox for layout */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the body takes at least the full height of the viewport */
+  background-color: #e7e7e7;
+}
+
+.content {
+  flex: 1; /* Makes the content take up the remaining space */
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+footer{
   background-color: #5b7bd2;
-  border-color: #001368;
+  margin-top: auto; /* Pushes the footer to the bottom */
 }
-
-
-.newTripButton:hover{
-  color: #e7e7e7 !important;
-  background-color: #001368;
-  border-color: #5b7bd2;
+.footerContainer{
+  width: 100%;
+  padding: 10px 10px 10px ;
 }
+.socialIcons{
+  display: flex;
+  justify-content: center;
+}
+.socialIcons a{
+  text-decoration: none;
+  padding:  10px;
+  background-color: white;
+  margin: 10px;
+  border-radius: 50%;
+}
+.socialIcons a i{
+  font-size: 2em;
+  color: black;
+  opacity: 0,9;
+}
+/* Hover affect on social media icon */
+.socialIcons a:hover{
+  background-color: #5b7bd2;
+  transition: 0.5s;
+}
+.socialIcons a:hover i{
+  color: white;
+  transition: 0.5s;
+}
+.footerNav{
+  margin: 30px 0;
+}
+.footerNav ul{
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+.footerNav ul li a{
+  color:white;
+  margin: 20px;
+  text-decoration: none;
+  font-size: 1.3em;
+  opacity: 0.7;
+  transition: 0.5s;
 
-.trips {
+}
+.footerNav ul li a:hover{
+  opacity: 1;
+}
+.footerBottom{
+  background-color: #5b7bd2;
+  // padding: 20px;
   text-align: center;
 }
-
-.tripsTable th, .tripsTable td {
-  border: 2px solid #e7e7e7;
-  color: #e7e7e7;
+.footerBottom p{
+  color: white;
 }
 
-.tripsTable{
-  border-collapse: collapse;
-  border: 2px solid #e7e7e7;
-}
-
-.tripsTable tr {
-  border-collapse: collapse;
-  border: 2px solid #e7e7e7;
+@media (max-width: 700px){
+  .footerNav ul{
+      flex-direction: column;
+  } 
+  .footerNav ul li{
+      width:100%;
+      text-align: center;
+      margin: 10px;
+  }
+  .socialIcons a{
+      padding: 8px;
+      margin: 4px;
+  }
 }
