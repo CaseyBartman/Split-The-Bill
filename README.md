@@ -1,6 +1,6 @@
 README:
-Originally a final project for a class, I've decided to take this web application and extend its features
-to help learn E2E testing with Cypress in a real world project.
+**Originally a final project for a class, I've decided to take this web application and extend its features
+to help learn E2E testing with Cypress in a real world project.**
 
 Below is the table of contents listed as a requirement for the submission of the project.
 It provides context to the original purpose of the web application in the context of the Web Development class.
